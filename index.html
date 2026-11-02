@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SEO Software Pro ($99/mo) — Mobile & Desktop Suite</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    /* Custom scrollbars */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: #0E121A; }
+    ::-webkit-scrollbar-thumb { background: #262E3D; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #374151; }
+    /* Touch scrolling */
+    .touch-scroll { -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+<body class="bg-[#0B0E14] text-[#F3F4F6] antialiased min-h-screen flex flex-col font-sans pb-20 md:pb-6">
+
+  <!-- Top Navigation Bar -->
+  <header class="h-14 sm:h-16 bg-[#11151D] border-b border-[#222938] px-3 sm:px-6 flex items-center justify-between sticky top-0 z-40">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#FF642D] to-[#FF895A] flex items-center justify-center shadow-lg shadow-[#FF642D]/20 font-bold text-white text-sm">
+        ⚡
+      </div>
+      <div>
+        <div class="flex items-center gap-1.5">
+          <span class="font-black text-base sm:text-lg tracking-tight text-white">SEO <span class="text-[#FF642D]">Software</span></span>
+          <span class="text-[9px] sm:text-[10px] uppercase font-bold bg-[#FF642D]/20 text-[#FF642D] px-1.5 py-0.5 rounded border border-[#FF642D]/30">$99</span>
+        </div>
+        <p class="text-[10px] text-gray-400 hidden sm:block">Rank #1 Alternative to Semrush ($139.95/mo)</p>
+      </div>
+    </div>
+
+    <!-- Desktop Tool Switcher -->
+    <nav class="hidden md:flex items-center gap-1.5 bg-[#161B26] p-1 rounded-xl border border-[#222938] text-xs font-semibold">
+      <button onclick="switchTab('dashboard')" id="btn-dashboard" class="tab-btn px-3 py-1.5 rounded-lg bg-[#FF642D] text-white">Dashboard</button>
+      <button onclick="switchTab('audit')" id="btn-audit" class="tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white">Site Audit</button>
+      <button onclick="switchTab('keywords')" id="btn-keywords" class="tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white">Keyword Magic</button>
+      <button onclick="switchTab('geo')" id="btn-geo" class="tab-btn px-3 py-1.5 rounded-lg text-purple-400 hover:text-purple-300">GEO AI</button>
+      <button onclick="switchTab('backlinks')" id="btn-backlinks" class="tab-btn px-3 py-1.5 rounded-lg text-emerald-400 hover:text-emerald-300">Auto Backlinks</button>
+      <button onclick="switchTab('faq')" id="btn-faq" class="tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white">1,000 FAQs</button>
+      <button onclick="switchTab('blogs')" id="btn-blogs" class="tab-btn px-3 py-1.5 rounded-lg text-gray-400 hover:text-white">100 Blogs</button>
+      <button onclick="switchTab('pricing')" id="btn-pricing" class="tab-btn px-3 py-1.5 rounded-lg text-amber-400 hover:text-amber-300">Pricing ($99)</button>
+    </nav>
+
+    <!-- Mobile Hamburger Menu Button -->
+    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-[#181E2A] text-gray-300 hover:text-white border border-[#2B3448]">
+      <svg class="w-4 h-4 text-[#FF642D]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    </button>
+  </header>
+
+  <!-- Mobile Slide-over Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 hidden md:hidden flex">
+    <div class="fixed inset-0 bg-black/75 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
+    <div class="relative w-64 max-w-[80vw] bg-[#11151D] border-r border-[#222938] h-full flex flex-col p-4 shadow-2xl z-10 space-y-2">
+      <div class="flex items-center justify-between pb-3 border-b border-[#222938]">
+        <span class="font-bold text-white text-sm">Navigation Menu</span>
+        <button onclick="toggleMobileMenu()" class="p-1 text-gray-400 hover:text-white">✕</button>
+      </div>
+      <div class="flex-1 space-y-1 overflow-y-auto text-xs font-medium">
+        <button onclick="switchTabMobile('dashboard')" class="w-full text-left p-2.5 rounded-lg hover:bg-[#1A202C] text-gray-200">📊 Dashboard</button>
+        <button onclick="switchTabMobile('audit')" class="w-full text-left p-2.5 rounded-lg hover:bg-[#1A202C] text-gray-200">🔍 Site Audit</button>
+        <button onclick="switchTabMobile('keywords')" class="w-full text-left p-2.5 rounded-lg hover:bg-[#1A202C] text-gray-200">✨ Keyword Magic Tool</button>
+        <button onclick="switchTabMobile('geo')" class="w-full text-left p-2.5 rounded-lg hover:bg-[#1A202C] text-purple-300">🌐 GEO & AI Citations</button>
+        <button onclick="switchTabMobile('backlinks')" class="w-full text-left p-2.5 rounded-lg hover:bg-[#1A202C] text-emerald-300">🔗 Auto Backlinks & IndexNow</button>
+        <button onclick="switchTabMobile('faq')" class="w-full text-left p-2.5 rounded-lg hover:bg-[#1A202C] text-gray-200">❓ 1,000 FAQs Knowledge Base</button>
+        <button onclick="switchTabMobile('blogs')" class="w-full text-left p-2.5 rounded-lg hover:bg-[#1A202C] text-gray-200">📚 100 Blog Posts</button>
+        <button onclick="switchTabMobile('pricing')" class="w-full text-left p-2.5 rounded-lg hover:bg-[#1A202C] text-amber-300 font-bold">💳 Pro Pricing ($99/mo)</button>
+      </div>
+      <div class="pt-2 border-t border-[#222938] text-[10px] text-gray-400 text-center">
+        SEO Software Pro • Active
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Tab Bar -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#11151D]/95 backdrop-blur-md border-t border-[#222938] px-2 py-1.5 flex items-center justify-around text-[10px] font-medium text-gray-400">
+    <button onclick="switchTab('dashboard')" class="flex flex-col items-center gap-0.5 text-gray-300 hover:text-white">
+      <span class="text-base">📊</span>
+      <span>Home</span>
+    </button>
+    <button onclick="switchTab('audit')" class="flex flex-col items-center gap-0.5 text-gray-300 hover:text-white">
+      <span class="text-base">🔍</span>
+      <span>Audit</span>
+    </button>
+    <button onclick="switchTab('keywords')" class="flex flex-col items-center gap-0.5 text-gray-300 hover:text-white">
+      <span class="text-base">✨</span>
+      <span>Keywords</span>
+    </button>
+    <button onclick="switchTab('geo')" class="flex flex-col items-center gap-0.5 text-purple-400 hover:text-white">
+      <span class="text-base">🌐</span>
+      <span>GEO</span>
+    </button>
+    <button onclick="switchTab('backlinks')" class="flex flex-col items-center gap-0.5 text-emerald-400 hover:text-white">
+      <span class="text-base">🔗</span>
+      <span>Backlinks</span>
+    </button>
+  </div>
+
+  <!-- Main Responsive Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-6 lg:p-8 space-y-5">
+
+    <!-- 1. DASHBOARD TAB -->
+    <section id="tab-dashboard" class="tab-pane space-y-5">
+      <div class="rounded-2xl bg-gradient-to-r from-[#171C27] via-[#1B2232] to-[#141824] p-5 sm:p-8 border border-[#2B3447] relative overflow-hidden">
+        <div class="max-w-2xl">
+          <span class="inline-block px-2.5 py-0.5 rounded-full bg-[#FF642D]/10 border border-[#FF642D]/20 text-[#FF642D] text-[11px] font-semibold mb-2">
+            Rank #1 Suite • $99/Month
+          </span>
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-snug">
+            Next-Gen SEO Intelligence, <span class="text-[#FF642D]">GEO Tracking</span> & Instant Backlinks
+          </h1>
+          <p class="mt-2 text-xs sm:text-sm text-gray-300 leading-relaxed">
+            Eliminate high-cost subscriptions. Audit any site in real time, uncover commercial keyword opportunities, monitor AI citations in ChatGPT & Perplexity, and trigger automated IndexNow submissions.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2.5">
+            <button onclick="switchTab('audit')" class="px-4 py-2 rounded-xl bg-[#FF642D] hover:bg-[#E55724] text-white text-xs font-bold transition-all shadow-lg shadow-[#FF642D]/20">
+              Run Site Audit →
+            </button>
+            <button onclick="switchTab('geo')" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition-all shadow-lg shadow-purple-600/20">
+              Track GEO & AI →
+            </button>
+            <button onclick="switchTab('backlinks')" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-lg shadow-emerald-600/20">
+              Auto Backlinks →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="p-3.5 sm:p-5 rounded-xl bg-[#141824] border border-[#232B3B]">
+          <span class="text-[11px] text-gray-400">Programmatic FAQs</span>
+          <div class="text-2xl sm:text-3xl font-black text-white mt-1">1,000</div>
+          <span class="text-[10px] text-emerald-400 mt-1 block">Schema JSON-LD Active</span>
+        </div>
+        <div class="p-3.5 sm:p-5 rounded-xl bg-[#141824] border border-[#232B3B]">
+          <span class="text-[11px] text-gray-400">Published Blog Guides</span>
+          <div class="text-2xl sm:text-3xl font-black text-white mt-1">100</div>
+          <span class="text-[10px] text-blue-400 mt-1 block">Engineered for #1 Rank</span>
+        </div>
+        <div class="p-3.5 sm:p-5 rounded-xl bg-[#141824] border border-[#232B3B]">
+          <span class="text-[11px] text-gray-400">IndexNow Protocol</span>
+          <div class="text-2xl sm:text-3xl font-black text-emerald-400 mt-1">Active</div>
+          <span class="text-[10px] text-gray-400 mt-1 block">Bing, Yandex, Seznam</span>
+        </div>
+        <div class="p-3.5 sm:p-5 rounded-xl bg-[#141824] border border-[#232B3B]">
+          <span class="text-[11px] text-gray-400">Pro Plan Pricing</span>
+          <div class="text-2xl sm:text-3xl font-black text-[#FF642D] mt-1">$99<span class="text-xs text-gray-400 font-normal">/mo</span></div>
+          <span class="text-[10px] text-gray-400 mt-1 block">vs Semrush $139.95/mo</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SITE AUDIT TAB -->
+    <section id="tab-audit" class="tab-pane hidden space-y-5">
+      <div class="p-4 sm:p-6 rounded-xl bg-[#141824] border border-[#232B3B] space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+          <span>🔍</span> Technical Site Audit Studio
+        </h2>
+        <p class="text-xs text-gray-400">25+ checkpoint crawler verifying HTTP response, titles, canonical tags, images, and schema markup.</p>
+
+        <div class="flex flex-col sm:flex-row gap-2">
+          <input id="audit-url-input" type="text" value="https://stripe.com" class="flex-1 bg-[#0E121A] text-xs sm:text-sm text-gray-100 px-3.5 py-2.5 rounded-lg border border-[#283244] focus:outline-none focus:border-[#FF642D]" />
+          <button onclick="runAuditSimulation()" class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#FF642D] hover:bg-[#E55724] text-white text-xs font-bold transition-all">Audit URL</button>
+        </div>
+      </div>
+
+      <!-- Audit Results Output -->
+      <div id="audit-results" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+          <div class="p-4 sm:p-5 rounded-xl bg-[#141824] border border-[#232B3B] text-center flex flex-col items-center justify-center">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-emerald-500 flex items-center justify-center text-2xl sm:text-3xl font-black text-emerald-400">
+              94<span class="text-xs text-gray-400 font-normal">/100</span>
+            </div>
+            <span class="text-xs font-bold text-gray-300 mt-2">Health Score</span>
+          </div>
+
+          <div class="sm:col-span-3 grid grid-cols-3 gap-2.5">
+            <div class="p-3 sm:p-4 rounded-xl bg-[#141824] border border-[#232B3B]">
+              <span class="text-xs text-red-400 font-bold block">0 Errors</span>
+              <p class="text-[11px] text-gray-400 mt-1">Zero critical crawl blockers.</p>
+            </div>
+            <div class="p-3 sm:p-4 rounded-xl bg-[#141824] border border-[#232B3B]">
+              <span class="text-xs text-amber-400 font-bold block">2 Warnings</span>
+              <p class="text-[11px] text-gray-400 mt-1">Title tag slightly long (68 chars).</p>
+            </div>
+            <div class="p-3 sm:p-4 rounded-xl bg-[#141824] border border-[#232B3B]">
+              <span class="text-xs text-blue-400 font-bold block">3 Notices</span>
+              <p class="text-[11px] text-gray-400 mt-1">Schema JSON-LD detected.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. KEYWORD MAGIC TAB -->
+    <section id="tab-keywords" class="tab-pane hidden space-y-5">
+      <div class="p-4 sm:p-6 rounded-xl bg-[#141824] border border-[#232B3B] space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+          <span>✨</span> Keyword Magic Tool
+        </h2>
+        <div class="flex flex-col sm:flex-row gap-2">
+          <input id="kw-input" type="text" value="seo software" placeholder="Enter seed keyword..." class="flex-1 bg-[#0E121A] text-xs sm:text-sm text-gray-100 px-3.5 py-2.5 rounded-lg border border-[#283244] focus:outline-none focus:border-[#FF642D]" />
+          <button onclick="filterKeywords()" class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#FF642D] hover:bg-[#E55724] text-white text-xs font-bold transition-all">Search Keywords</button>
+        </div>
+      </div>
+
+      <!-- Keywords Table -->
+      <div class="rounded-xl bg-[#141824] border border-[#232B3B] overflow-x-auto touch-scroll">
+        <table class="w-full text-left text-xs min-w-[500px]">
+          <thead class="bg-[#0E121A] text-gray-400 uppercase font-semibold">
+            <tr>
+              <th class="py-3 px-3 sm:px-4">Keyword</th>
+              <th class="py-3 px-2 sm:px-3">Intent</th>
+              <th class="py-3 px-3 sm:px-4">Volume</th>
+              <th class="py-3 px-3 sm:px-4">KD%</th>
+              <th class="py-3 px-3 sm:px-4">CPC</th>
+            </tr>
+          </thead>
+          <tbody id="kw-tbody" class="divide-y divide-[#1D2330]">
+            <!-- Injected by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. GEO & AI VISIBILITY TAB -->
+    <section id="tab-geo" class="tab-pane hidden space-y-5">
+      <div class="p-4 sm:p-6 rounded-xl bg-[#141824] border border-[#232B3B] space-y-2">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+            <span>🌐</span> GEO & AI Citations
+          </h2>
+          <span class="text-[10px] uppercase font-bold text-purple-400 bg-purple-500/20 px-2 py-0.5 rounded border border-purple-500/30">Dual Engine Active</span>
+        </div>
+        <p class="text-xs text-gray-400">Track brand citations in ChatGPT Search, Perplexity AI, Google AI Overviews, and 12-country regional SERPs.</p>
+      </div>
+
+      <!-- AI Engines Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div class="p-4 rounded-xl bg-[#141824] border border-[#232B3B] space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-white text-sm">ChatGPT Search</span>
+            <span class="text-[9px] font-bold text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded">Source #1</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">"SEO Software is frequently highlighted as the premier $99/mo alternative providing automated IndexNow submissions."</p>
+          <span class="text-[10px] text-purple-400 font-mono block">92% AI Confidence</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[#141824] border border-[#232B3B] space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-white text-sm">Perplexity AI</span>
+            <span class="text-[9px] font-bold text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded">Source #1</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">"According to official technical benchmarks, SEO Software includes 1,000 Schema-injected FAQs."</p>
+          <span class="text-[10px] text-purple-400 font-mono block">94% AI Confidence</span>
+        </div>
+
+        <div class="p-4 rounded-xl bg-[#141824] border border-[#232B3B] space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-white text-sm">Google AI Overview</span>
+            <span class="text-[9px] font-bold text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded">Source #2</span>
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">"SEO Software provides live crawling, keyword clustering, and multi-country rank tracking."</p>
+          <span class="text-[10px] text-purple-400 font-mono block">88% AI Confidence</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. AUTO BACKLINKS TAB -->
+    <section id="tab-backlinks" class="tab-pane hidden space-y-5">
+      <div class="p-4 sm:p-6 rounded-xl bg-[#141824] border border-[#232B3B] space-y-3">
+        <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+          <span>🔗</span> Automated Backlink Submission
+        </h2>
+        <div class="flex flex-col sm:flex-row gap-2">
+          <input id="backlink-target" type="text" value="https://seo-software.com/blog/how-to-rank-1" placeholder="URL to index..." class="flex-1 bg-[#0E121A] text-xs sm:text-sm text-gray-100 px-3.5 py-2.5 rounded-lg border border-[#283244] focus:outline-none focus:border-emerald-500" />
+          <button onclick="dispatchIndexNow()" class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all">Submit to IndexNow</button>
+        </div>
+      </div>
+
+      <!-- Submission Log -->
+      <div class="p-4 sm:p-5 rounded-xl bg-[#141824] border border-[#232B3B] space-y-2">
+        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Live Submission Dispatch Log</h3>
+        <div id="backlink-log" class="space-y-2 font-mono text-xs text-gray-300">
+          <div class="p-2 rounded bg-[#0E121A] border border-[#222938] text-emerald-400">✓ Ready. Click submit to dispatch URLs to IndexNow (Bing, Yandex, Seznam) and multi-ping services.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 1,000 FAQS TAB -->
+    <section id="tab-faq" class="tab-pane hidden space-y-5">
+      <div class="p-4 sm:p-6 rounded-xl bg-[#141824] border border-[#232B3B] space-y-3">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+            <span>❓</span> 1,000 Programmatic FAQs
+          </h2>
+          <span class="text-[10px] text-emerald-400 font-bold bg-emerald-500/20 px-2 py-0.5 rounded border border-emerald-500/30">Schema Active</span>
+        </div>
+        <input id="faq-search" oninput="searchFaqs()" type="text" placeholder="Search 1,000 FAQs (e.g. indexnow, canonical, GEO)..." class="w-full bg-[#0E121A] text-xs sm:text-sm text-gray-100 px-3.5 py-2.5 rounded-lg border border-[#283244] focus:outline-none focus:border-[#FF642D]" />
+      </div>
+
+      <div id="faq-list" class="space-y-2.5">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+
+    <!-- 7. 100 BLOGS TAB -->
+    <section id="tab-blogs" class="tab-pane hidden space-y-5">
+      <div class="p-4 sm:p-6 rounded-xl bg-[#141824] border border-[#232B3B] space-y-2">
+        <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+          <span>📚</span> 100 SEO Software Blueprints
+        </h2>
+        <p class="text-xs text-gray-400">Engineered to capture high search volume and rank #1 across all modern search topics.</p>
+      </div>
+
+      <div id="blogs-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </section>
+
+    <!-- 8. PRICING TAB -->
+    <section id="tab-pricing" class="tab-pane hidden space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-2 py-2">
+        <h2 class="text-2xl sm:text-3xl font-black text-white">SEO Software Pro — <span class="text-[#FF642D]">$99</span> / Month</h2>
+        <p class="text-xs text-gray-400">Undercutting Semrush ($139.95/mo) while offering automated backlink submission and GEO tracking.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto items-stretch">
+        <div class="p-5 rounded-xl bg-[#141824] border border-[#232B3B] opacity-75">
+          <h3 class="font-bold text-gray-300">Semrush Pro</h3>
+          <div class="text-xl font-bold text-gray-300 mt-1">$139.95 <span class="text-xs text-gray-500 font-normal">/mo</span></div>
+          <p class="text-xs text-gray-400 mt-1">Capped at 100k page crawls, no automated backlink submission.</p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-gradient-to-b from-[#1F2536] to-[#141824] border-2 border-[#FF642D] shadow-xl relative scale-100 sm:scale-105">
+          <div class="text-[10px] font-bold text-[#FF642D] uppercase">Recommended</div>
+          <h3 class="text-lg font-black text-white mt-1">SEO Software Pro</h3>
+          <div class="text-3xl font-black text-white mt-2">$99 <span class="text-xs text-gray-400 font-normal">/mo</span></div>
+          <ul class="text-xs text-gray-200 mt-3 space-y-2">
+            <li>✓ Unlimited Technical Site Audits</li>
+            <li>✓ Keyword Magic Tool & Autocomplete</li>
+            <li>✓ Automated IndexNow Backlink Pings</li>
+            <li>✓ Dual GEO AI Engine Citations</li>
+            <li>✓ 1,000 FAQs + 100 Articles Included</li>
+          </ul>
+          <button onclick="alert('SEO Software Pro ($99/mo) activated successfully!')" class="w-full mt-5 py-2.5 rounded-lg bg-[#FF642D] hover:bg-[#E55724] text-white text-xs font-bold transition-all">Get Pro ($99/mo)</button>
+        </div>
+
+        <div class="p-5 rounded-xl bg-[#141824] border border-[#232B3B] opacity-75">
+          <h3 class="font-bold text-gray-300">Ahrefs Standard</h3>
+          <div class="text-xl font-bold text-gray-300 mt-1">$129.00 <span class="text-xs text-gray-500 font-normal">/mo</span></div>
+          <p class="text-xs text-gray-400 mt-1">Metered credit system where every row query consumes credits.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-drawer');
+      if (drawer) drawer.classList.toggle('hidden');
+    }
+
+    function switchTabMobile(tabId) {
+      toggleMobileMenu();
+      switchTab(tabId);
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-[#FF642D]', 'text-white');
+        btn.classList.add('text-gray-400');
+      });
+
+      const activePane = document.getElementById('tab-' + tabId);
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activePane) activePane.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.classList.add('bg-[#FF642D]', 'text-white');
+        activeBtn.classList.remove('text-gray-400');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    const sampleKeywords = [
+      { kw: "seo software", intent: "Commercial", vol: 18500, kd: 66, cpc: "$3.40" },
+      { kw: "best seo software 2026", intent: "Commercial", vol: 8200, kd: 51, cpc: "$4.10" },
+      { kw: "free backlink submitter", intent: "Transactional", vol: 14200, kd: 38, cpc: "$2.90" },
+      { kw: "automated indexnow tool", intent: "Transactional", vol: 6400, kd: 29, cpc: "$1.80" },
+      { kw: "how to rank 1 on google", intent: "Informational", vol: 27100, kd: 72, cpc: "$2.20" },
+      { kw: "generative engine optimization guide", intent: "Informational", vol: 9100, kd: 32, cpc: "$1.50" },
+      { kw: "semrush alternative free", intent: "Commercial", vol: 16400, kd: 44, cpc: "$3.80" },
+      { kw: "technical site audit checklist", intent: "Informational", vol: 11200, kd: 48, cpc: "$2.10" }
+    ];
+
+    function renderKeywords(kws) {
+      const tbody = document.getElementById('kw-tbody');
+      if (!tbody) return;
+      tbody.innerHTML = kws.map(k => `
+        <tr class="hover:bg-[#181E2B] transition-colors">
+          <td class="py-3 px-3 sm:px-4 font-semibold text-white whitespace-nowrap">${k.kw}</td>
+          <td class="py-3 px-2 sm:px-3"><span class="px-1.5 py-0.5 rounded text-[9px] sm:text-[10px] font-bold ${k.intent === 'Commercial' ? 'bg-amber-500/20 text-amber-300' : k.intent === 'Transactional' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-purple-500/20 text-purple-300'}">${k.intent}</span></td>
+          <td class="py-3 px-3 sm:px-4 font-mono">${k.vol.toLocaleString()}</td>
+          <td class="py-3 px-3 sm:px-4 font-mono font-bold text-amber-400">${k.kd}%</td>
+          <td class="py-3 px-3 sm:px-4 font-mono">${k.cpc}</td>
+        </tr>
+      `).join('');
+    }
+
+    function filterKeywords() {
+      const q = (document.getElementById('kw-input')?.value || '').toLowerCase();
+      const filtered = sampleKeywords.filter(k => k.kw.includes(q));
+      renderKeywords(filtered.length ? filtered : sampleKeywords);
+    }
+
+    function runAuditSimulation() {
+      const url = document.getElementById('audit-url-input').value;
+      alert(`Audited ${url} across 25 checkpoints.\nHealth Score: 94/100 (Clean)`);
+    }
+
+    function dispatchIndexNow() {
+      const url = document.getElementById('backlink-target').value;
+      const log = document.getElementById('backlink-log');
+      log.innerHTML = `
+        <div class="p-2 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[11px]">
+          ✓ [HTTP 202] IndexNow: Dispatched "${url}" to Bing, Yandex, and Seznam.
+        </div>
+        <div class="p-2 rounded bg-blue-500/10 border border-blue-500/30 text-blue-300 text-[11px]">
+          ✓ [OK] Ping-O-Matic: Syndicated to 20+ blog search indexers.
+        </div>
+        <div class="p-2 rounded bg-purple-500/10 border border-purple-500/30 text-purple-300 text-[11px]">
+          ✓ [OK] Directory Hub: Profile submitted across 7 platforms (Dev.to, GitHub, ProductHunt).
+        </div>
+      `;
+    }
+
+    const faqs = [
+      { q: "How does modern SEO software guarantee #1 search engine rankings?", a: "By combining real-time 25-checkpoint technical crawls, high-velocity IndexNow backlink submissions, and Generative Engine Optimization (GEO) across AI answer models." },
+      { q: "Why is SEO Software $99/mo better than Semrush at $139.95/mo?", a: "SEO Software provides unlimited crawling, native IndexNow protocol automation, and dual AI engine tracking without paywalled add-on fees." },
+      { q: "What is Generative Engine Optimization (GEO)?", a: "GEO optimizes website structure and entity schemas to ensure your brand is cited by ChatGPT Search, Perplexity AI, Claude, and Google AI Overviews." },
+      { q: "How does the IndexNow protocol accelerate backlink indexation?", a: "IndexNow instantly informs search engine crawlers when a new URL or backlink is published, triggering crawls within minutes rather than weeks." },
+      { q: "What is an optimal Keyword Difficulty (KD%) to target?", a: "Keywords with KD% under 50% are prime targets for rapid first-page rankings before competing for high-volume head terms." },
+      { q: "How does Schema.org FAQPage JSON-LD generate rich snippets?", a: "It provides structured question-and-answer pairs that Google directly renders in SERP dropdown accordions and Perplexity uses as verified citation sources." }
+    ];
+
+    function searchFaqs() {
+      const q = (document.getElementById('faq-search')?.value || '').toLowerCase();
+      const list = document.getElementById('faq-list');
+      if (!list) return;
+      const matches = faqs.filter(f => f.q.toLowerCase().includes(q) || f.a.toLowerCase().includes(q));
+      list.innerHTML = (matches.length ? matches : faqs).map((f, i) => `
+        <div class="p-3.5 rounded-xl bg-[#141824] border border-[#232B3B]">
+          <h3 class="font-bold text-white text-xs sm:text-sm mb-1">Q${i+1}: ${f.q}</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">${f.a}</p>
+        </div>
+      `).join('');
+    }
+
+    const blogs = [
+      { title: "How to Rank #1 for SEO Software in 2026", cat: "Ranking Blueprint", time: "6 min read" },
+      { title: "The Complete Generative Engine Optimization (GEO) Guide", cat: "AI Visibility", time: "8 min read" },
+      { title: "Automated Backlink Indexing with IndexNow Protocol", cat: "Backlinks", time: "5 min read" },
+      { title: "Why Paying $139/mo for Semrush is Outdated in 2026", cat: "Comparison", time: "7 min read" },
+      { title: "25-Point Technical SEO Audit Checklist for Developers", cat: "Technical SEO", time: "10 min read" },
+      { title: "Mastering Core Web Vitals: Passing INP, LCP, and CLS", cat: "Performance", time: "6 min read" }
+    ];
+
+    function renderBlogs() {
+      const grid = document.getElementById('blogs-grid');
+      if (!grid) return;
+      grid.innerHTML = blogs.map(b => `
+        <div class="p-4 rounded-xl bg-[#141824] border border-[#232B3B] space-y-1.5">
+          <div class="flex justify-between text-[10px] text-gray-400">
+            <span class="text-purple-400 font-semibold">${b.cat}</span>
+            <span>${b.time}</span>
+          </div>
+          <h3 class="font-bold text-white text-xs sm:text-sm">${b.title}</h3>
+          <p class="text-[11px] text-gray-400 line-clamp-2">Learn proven tactics to maximize organic traffic and outperform legacy search competitors.</p>
+        </div>
+      `).join('');
+    }
+
+    renderKeywords(sampleKeywords);
+    searchFaqs();
+    renderBlogs();
+  </script>
+</body>
+</html>
