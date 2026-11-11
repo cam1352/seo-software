@@ -40,14 +40,12 @@ function AuditContent() {
   const [auditData, setAuditData] = useState<AuditResult | null>(null);
   const [activeTab, setActiveTab] = useState<"all" | "error" | "warning" | "notice">("all");
   const [errorMsg, setErrorMsg] = useState("");
-  const [showLlmsTxt, setShowLlmsTxt] = useState(false);
-  const [copiedLlms, setCopiedLlms] = useState(false);
   const [copiedPromptId, setCopiedPromptId] = useState<string | null>(null);
   const [expandedPromptId, setExpandedPromptId] = useState<string | null>(null);
 
   // 1-Click Code Fix Package Drawer
   const [showFixModal, setShowFixModal] = useState(false);
-  const [fixTab, setFixTab] = useState<"head" | "schema" | "content" | "llms">("head");
+  const [fixTab, setFixTab] = useState<"head" | "schema" | "content" | "robots">("head");
   const [copiedFixTab, setCopiedFixTab] = useState<string | null>(null);
 
   const runAudit = async (target: string) => {
@@ -108,20 +106,13 @@ function AuditContent() {
     a.click();
   };
 
-  const copyLlmsTxt = () => {
-    if (!auditData?.agentReadiness?.suggestedLlmsTxt) return;
-    navigator.clipboard.writeText(auditData.agentReadiness.suggestedLlmsTxt);
-    setCopiedLlms(true);
-    setTimeout(() => setCopiedLlms(false), 2000);
-  };
-
   const copyPrompt = (id: string, promptText: string) => {
     navigator.clipboard.writeText(promptText);
     setCopiedPromptId(id);
     setTimeout(() => setCopiedPromptId(null), 2000);
   };
 
-  const copyFixCode = (type: "head" | "schema" | "content" | "llms", content: string) => {
+  const copyFixCode = (type: "head" | "schema" | "content" | "robots", content: string) => {
     navigator.clipboard.writeText(content);
     setCopiedFixTab(type);
     setTimeout(() => setCopiedFixTab(null), 2000);
@@ -247,12 +238,12 @@ function AuditContent() {
                     3. Semantic Body HTML
                   </button>
                   <button
-                    onClick={() => setFixTab("llms")}
+                    onClick={() => setFixTab("robots")}
                     className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
-                      fixTab === "llms" ? "bg-blue-600 text-white shadow-sm" : "text-slate-600 hover:text-slate-900"
+                      fixTab === "robots" ? "bg-blue-600 text-white shadow-sm" : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
-                    4. /llms.txt
+                    4. robots.txt & Sitemap
                   </button>
                 </div>
               </div>
@@ -318,22 +309,22 @@ function AuditContent() {
                 </div>
               )}
 
-              {fixTab === "llms" && (
+              {fixTab === "robots" && (
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-xs text-slate-600">
                     <span>
-                      Fixes: <strong>llms.txt AI Agent Manifest</strong>. Place at <code>/public/llms.txt</code> or <code>https://domain.com/llms.txt</code> for Claude Code, Perplexity, and AI search crawlers.
+                      Fixes: <strong>robots.txt &amp; Sitemap Directives</strong>. Place at <code>/public/robots.txt</code> or <code>https://domain.com/robots.txt</code> to guide Googlebot, Bingbot, and search indexers.
                     </span>
                     <button
-                      onClick={() => copyFixCode("llms", generatedFixes.llmsTxt)}
+                      onClick={() => copyFixCode("robots", generatedFixes.robotsTxt)}
                       className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 hover:bg-blue-100 font-bold border border-blue-200 transition-all cursor-pointer"
                     >
-                      {copiedFixTab === "llms" ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                      <span>{copiedFixTab === "llms" ? "Copied /llms.txt!" : "Copy /llms.txt"}</span>
+                      {copiedFixTab === "robots" ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                      <span>{copiedFixTab === "robots" ? "Copied robots.txt!" : "Copy robots.txt"}</span>
                     </button>
                   </div>
                   <pre className="p-4 rounded-lg bg-slate-900 text-slate-200 font-mono text-xs overflow-x-auto max-h-72 border border-slate-800 leading-relaxed">
-                    {generatedFixes.llmsTxt}
+                    {generatedFixes.robotsTxt}
                   </pre>
                 </div>
               )}
@@ -501,31 +492,6 @@ function AuditContent() {
                   ))}
                 </div>
 
-                {/* llms.txt Actions */}
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
-                  <button
-                    onClick={() => setShowLlmsTxt(!showLlmsTxt)}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 cursor-pointer"
-                  >
-                    <FileText className="w-3.5 h-3.5" />
-                    <span>{showLlmsTxt ? "Hide Suggested /llms.txt" : "View Auto-Generated /llms.txt"}</span>
-                    {showLlmsTxt ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                  </button>
-
-                  <button
-                    onClick={copyLlmsTxt}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-semibold text-slate-700 transition-all cursor-pointer"
-                  >
-                    {copiedLlms ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copiedLlms ? "Copied llms.txt!" : "Copy /llms.txt"}</span>
-                  </button>
-                </div>
-
-                {showLlmsTxt && (
-                  <div className="p-3 rounded-lg bg-slate-900 text-slate-200 font-mono text-[11px] overflow-x-auto max-h-48 border border-slate-800 space-y-1">
-                    <pre>{auditData.agentReadiness.suggestedLlmsTxt}</pre>
-                  </div>
-                )}
               </div>
             )}
           </div>
