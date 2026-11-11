@@ -19,7 +19,6 @@ export async function POST(req: NextRequest) {
       const stripe = new Stripe(stripeSecretKey);
 
       const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
         line_items: [
           {
             price_data: {
