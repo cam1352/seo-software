@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useMemo } from "react";
 import { HelpCircle, Search, ChevronDown, ChevronUp, Copy, Check, Sparkles, MapPin, Globe } from "lucide-react";
@@ -68,10 +68,12 @@ export default function FaqPage() {
   }, [searchQuery, selectedCategory, selectedCity]);
 
   const copyFaqLink = (id: string) => {
-    const url = ${window.location.origin}/faq#;
-    navigator.clipboard.writeText(url);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 1500);
+    if (typeof window !== "undefined") {
+      const url = window.location.origin + "/faq#" + id;
+      navigator.clipboard.writeText(url);
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 1500);
+    }
   };
 
   // Generate Schema.org FAQPage JSON-LD for rich snippets
@@ -146,7 +148,12 @@ export default function FaqPage() {
                 setSelectedCategory(cat);
                 setDisplayCount(50);
               }}
-              className={px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition-all cursor-pointer }
+              className={
+                "px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition-all cursor-pointer " +
+                (selectedCategory === cat
+                  ? "bg-blue-600 text-white font-semibold shadow-sm"
+                  : "bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200")
+              }
             >
               {cat === "ALL" ? "All FAQs (1,000)" : cat}
             </button>
@@ -167,7 +174,12 @@ export default function FaqPage() {
                   setSelectedCity(city);
                   setDisplayCount(50);
                 }}
-                className={px-2 py-0.5 rounded text-[11px] font-medium transition-colors cursor-pointer shrink-0 }
+                className={
+                  "px-2 py-0.5 rounded text-[11px] font-medium transition-colors cursor-pointer shrink-0 " +
+                  (selectedCity === city
+                    ? "bg-blue-100 text-blue-800 font-bold border border-blue-300"
+                    : "text-slate-500 hover:text-slate-800 hover:bg-slate-100")
+                }
               >
                 {city}
               </button>
@@ -190,7 +202,12 @@ export default function FaqPage() {
             <div
               key={faq.id}
               id={faq.id}
-              className={ounded-xl border transition-all }
+              className={
+                "rounded-xl border transition-all " +
+                (isOpen
+                  ? "bg-white border-blue-500 shadow-sm ring-1 ring-blue-500/10"
+                  : "bg-white border-slate-200 hover:border-slate-300")
+              }
             >
               <button
                 onClick={() => setOpenFaqId(isOpen ? null : faq.id)}
