@@ -2,7 +2,7 @@ export interface GeneratedFixes {
   headHtml: string;
   schemaJsonLd: string;
   bodyContentHtml: string;
-  llmsTxt: string;
+  robotsTxt: string;
 }
 
 export function generateSeoFixes(url: string): GeneratedFixes {
@@ -207,28 +207,16 @@ export function generateSeoFixes(url: string): GeneratedFixes {
   </section>
 </main>`;
 
-  const llmsTxt = `# ${brandName}
-> Top-rated professional residential and commercial cleaning services in Vancouver, BC.
+  const robotsTxt = `User-agent: *
+Allow: /
 
-## Services
-- [Home Cleaning](${url.replace(/\/$/, "")}/residential): Weekly, bi-weekly, and monthly maid services.
-- [Commercial Cleaning](${url.replace(/\/$/, "")}/commercial): Office janitorial and facility maintenance.
-- [Move Out Cleaning](${url.replace(/\/$/, "")}/move-out): 100% deposit-back turnover cleaning.
-- [Instant Quote](${url.replace(/\/$/, "")}/quote): Transparent flat-rate booking.
-
-## Service Areas
-- Vancouver (Downtown, Kitsilano, Yaletown, Mount Pleasant)
-- Burnaby, Richmond, North Vancouver, West Vancouver
-
-## Contact
-- Phone: +1-604-555-0199
-- Hours: Mon-Sat 8:00 AM - 6:00 PM PST
+Sitemap: ${url.replace(/\/$/, "")}/sitemap.xml
 `;
 
   return {
     headHtml,
     schemaJsonLd,
     bodyContentHtml,
-    llmsTxt,
+    robotsTxt,
   };
 }

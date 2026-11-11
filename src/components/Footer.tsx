@@ -61,12 +61,11 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/llms.txt"
-                  target="_blank"
+                  href="/faq"
                   className="text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-colors"
                 >
                   <FileText className="w-3 h-3 text-slate-400" />
-                  <span>AI Agent Manifest (/llms.txt)</span>
+                  <span>Local SEO by City (Multi-Location)</span>
                 </Link>
               </li>
             </ul>
@@ -127,7 +126,7 @@ export function Footer() {
               <li>
                 <Link href="/settings" className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
                   <Terminal className="w-3 h-3 text-slate-400" />
-                  <span>Claude Code & MCP Server</span>
+                  <span>Platform Settings & Crawler</span>
                 </Link>
               </li>
               <li>
@@ -152,8 +151,8 @@ export function Footer() {
           <div className="flex items-center gap-4 text-xs">
             <Link href="/faq" className="hover:text-blue-600 transition-colors">FAQs</Link>
             <Link href="/blogs" className="hover:text-blue-600 transition-colors">Blogs</Link>
-            <Link href="/llms.txt" target="_blank" className="hover:text-blue-600 transition-colors">llms.txt</Link>
             <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
+            <Link href="/settings" className="hover:text-blue-600 transition-colors">Settings</Link>
           </div>
         </div>
       </div>

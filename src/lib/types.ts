@@ -20,9 +20,8 @@ export interface EeatScore {
 
 export interface AgentReadiness {
   score: number; // 0 - 100
-  hasLlmsTxt: boolean;
-  llmsTxtUrl?: string;
-  suggestedLlmsTxt: string;
+  hasSitemap?: boolean;
+  sitemapUrl?: string;
   agenticBrowsingScore: number;
   checklist: { item: string; passed: boolean; tip: string }[];
 }

@@ -355,55 +355,37 @@ export async function crawlAndAudit(targetUrl: string): Promise<AuditResult> {
     insights: eeatInsights,
   };
 
-  // Claude SEO Agent Readiness & llms.txt evaluation
-  // Check if target is apex domain or provides llms.txt
-  let hasLlmsTxt = false;
-  let llmsTxtUrl: string | undefined = undefined;
+  // Search Engine Crawl & Indexing Readiness evaluation
+  let hasSitemap = false;
+  let sitemapUrl: string | undefined = undefined;
   try {
-    const checkLlms = await fetch(`${urlObj.origin}/llms.txt`, {
+    const checkSitemap = await fetch(`${urlObj.origin}/sitemap.xml`, {
       method: "HEAD",
       signal: AbortSignal.timeout(2500),
     });
-    if (checkLlms.status === 200) {
-      hasLlmsTxt = true;
-      llmsTxtUrl = `${urlObj.origin}/llms.txt`;
+    if (checkSitemap.status === 200) {
+      hasSitemap = true;
+      sitemapUrl = `${urlObj.origin}/sitemap.xml`;
     }
   } catch {
-    // llms.txt not reachable
+    // sitemap not reachable
   }
-
-  const domainTitle = title || urlObj.hostname;
-  const domainDesc = metaDesc || "Official web platform and programmatic developer resources.";
-
-  const suggestedLlmsTxt = `# ${domainTitle}
-> ${domainDesc}
-
-## Overview
-- [Homepage](${urlObj.origin}/): Main entry point and service capabilities.
-- [Documentation](${urlObj.origin}/docs): Architectural specifications and developer guides.
-- [API Reference](${urlObj.origin}/api): REST, GraphQL, and Model Context Protocol (MCP) endpoints.
-
-## Agent Guidelines
-- Optimized for autonomous AI agent inspection (Claude Code, Antigravity, Gemini CLI, Perplexity).
-- Use structured JSON-LD endpoints and semantic markdown endpoints for programmatic consumption.
-- Keep agent interaction latency under 500ms TTFB.
-`;
 
   const checklist = [
     {
-      item: "llms.txt AI Agent Manifest",
-      passed: hasLlmsTxt,
-      tip: hasLlmsTxt ? "Serving standard /llms.txt manifest for AI agents." : "Publish /llms.txt so Claude Code, Antigravity, and Perplexity can index key capabilities.",
+      item: "XML Sitemap & Search Indexing Directives",
+      passed: hasSitemap,
+      tip: hasSitemap ? "Verified XML sitemap reachable for rapid search indexation." : "Publish /sitemap.xml and submit via IndexNow to guarantee all pages get indexed.",
     },
     {
       item: "Schema.org JSON-LD Structured Data",
       passed: schemaTypes.length > 0,
-      tip: schemaTypes.length > 0 ? `Detected types: ${schemaTypes.slice(0, 3).join(", ")}` : "Inject structured JSON-LD (WebSite, Organization, or SoftwareApplication).",
+      tip: schemaTypes.length > 0 ? `Detected types: ${schemaTypes.slice(0, 3).join(", ")}` : "Inject structured JSON-LD (WebSite, Organization, LocalBusiness, or SoftwareApplication).",
     },
     {
       item: "Clean Heading & DOM Hierarchy",
       passed: h1Tags.length === 1 && h2Count > 0,
-      tip: h1Tags.length === 1 ? "Proper 1x H1 with H2 hierarchy." : "Ensure exactly one H1 and nested H2s for clean LLM agent parsing.",
+      tip: h1Tags.length === 1 ? "Proper 1x H1 with H2 hierarchy." : "Ensure exactly one H1 and nested H2s for clean search crawler indexing.",
     },
     {
       item: "Semantic OpenGraph & Metadata",
@@ -413,12 +395,12 @@ export async function crawlAndAudit(targetUrl: string): Promise<AuditResult> {
     {
       item: "Crawl Latency & Performance",
       passed: crawlTimeMs < 1200,
-      tip: crawlTimeMs < 1200 ? `${crawlTimeMs}ms TTFB (Agent-ready speed)` : `${crawlTimeMs}ms is slow for real-time agent browsing. Optimize TTFB.`,
+      tip: crawlTimeMs < 1200 ? `${crawlTimeMs}ms TTFB (High-speed indexable speed)` : `${crawlTimeMs}ms is slow for search engine spiders. Optimize TTFB.`,
     },
   ];
 
   let agentReadinessScore = 40;
-  if (hasLlmsTxt) agentReadinessScore += 25;
+  if (hasSitemap) agentReadinessScore += 25;
   if (schemaTypes.length > 0) agentReadinessScore += 15;
   if (h1Tags.length === 1) agentReadinessScore += 10;
   if (hasOpenGraph) agentReadinessScore += 5;
@@ -427,9 +409,8 @@ export async function crawlAndAudit(targetUrl: string): Promise<AuditResult> {
 
   const agentReadiness: AgentReadiness = {
     score: agentReadinessScore,
-    hasLlmsTxt,
-    llmsTxtUrl,
-    suggestedLlmsTxt,
+    hasSitemap,
+    sitemapUrl,
     agenticBrowsingScore: agentReadinessScore,
     checklist,
   };
