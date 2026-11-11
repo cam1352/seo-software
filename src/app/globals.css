@@ -1,12 +1,13 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #0B0E14;
-  --foreground: #F3F4F6;
-  --card-bg: #151922;
-  --card-border: #232936;
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
+  --primary: #2563EB;
 }
 
 body {
@@ -16,30 +17,26 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom scrollbars */
+/* Custom scrollbars for light theme */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0e121a;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #232936;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
-}
-
-.glow-orange {
-  box-shadow: 0 0 25px -5px rgba(255, 100, 45, 0.25);
+  background: #94A3B8;
 }
 
 .glow-blue {
-  box-shadow: 0 0 25px -5px rgba(53, 106, 230, 0.25);
+  box-shadow: 0 0 25px -5px rgba(37, 99, 235, 0.25);
 }
 
-.glow-green {
-  box-shadow: 0 0 25px -5px rgba(0, 194, 136, 0.25);
+.glow-indigo {
+  box-shadow: 0 0 25px -5px rgba(79, 70, 229, 0.2);
 }

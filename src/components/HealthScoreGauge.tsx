@@ -13,14 +13,14 @@ export function HealthScoreGauge({ score, size = 120, label = "Health Score" }: 
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (safeScore / 100) * circumference;
 
-  let strokeColor = "#00C288"; // emerald / green (80+)
-  let textColor = "text-emerald-400";
+  let strokeColor = "#2563EB"; // brand blue (80+)
+  let textColor = "text-blue-600";
   if (safeScore < 50) {
     strokeColor = "#EF4444"; // red
-    textColor = "text-red-400";
+    textColor = "text-red-500";
   } else if (safeScore < 80) {
     strokeColor = "#F59E0B"; // yellow / amber
-    textColor = "text-amber-400";
+    textColor = "text-amber-500";
   }
 
   return (
@@ -31,7 +31,7 @@ export function HealthScoreGauge({ score, size = 120, label = "Health Score" }: 
             cx={size / 2}
             cy={size / 2}
             r={radius}
-            stroke="#222938"
+            stroke="#E2E8F0"
             strokeWidth={strokeWidth}
             fill="transparent"
           />
@@ -50,10 +50,10 @@ export function HealthScoreGauge({ score, size = 120, label = "Health Score" }: 
         </svg>
         <div className="absolute flex flex-col items-center">
           <span className={`text-2xl font-black tracking-tight ${textColor}`}>{safeScore}</span>
-          <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">/100</span>
+          <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">/100</span>
         </div>
       </div>
-      {label && <span className="mt-2 text-xs font-semibold text-gray-300">{label}</span>}
+      {label && <span className="mt-2 text-xs font-semibold text-slate-700">{label}</span>}
     </div>
   );
 }

@@ -5,7 +5,26 @@ export interface AuditIssue {
   title: string;
   description: string;
   recommendation: string;
+  claudeFixPrompt?: string;
   affectedElements?: string[];
+}
+
+export interface EeatScore {
+  overall: number; // 0 - 100
+  experience: number; // 0 - 100
+  expertise: number; // 0 - 100
+  authoritativeness: number; // 0 - 100
+  trustworthiness: number; // 0 - 100
+  insights: string[];
+}
+
+export interface AgentReadiness {
+  score: number; // 0 - 100
+  hasLlmsTxt: boolean;
+  llmsTxtUrl?: string;
+  suggestedLlmsTxt: string;
+  agenticBrowsingScore: number;
+  checklist: { item: string; passed: boolean; tip: string }[];
 }
 
 export interface AuditResult {
@@ -18,6 +37,8 @@ export interface AuditResult {
   errorsCount: number;
   warningsCount: number;
   noticesCount: number;
+  agentReadiness?: AgentReadiness;
+  eeatScore?: EeatScore;
   metrics: {
     title: string;
     titleLength: number;
@@ -44,6 +65,7 @@ export interface AuditResult {
   };
   issues: AuditIssue[];
 }
+
 
 export interface KeywordItem {
   keyword: string;
@@ -123,15 +145,24 @@ export interface BacklinkSubmissionPayload {
   siteName?: string;
   description?: string;
   category?: string;
+  locations?: string[];
+  locationRaw?: string;
+  country?: string;
+  batchIndex?: number;
+  directoryIds?: string[];
 }
 
 export interface SubmissionServiceResult {
+  id?: string;
   service: string;
-  type: "indexnow" | "ping" | "directory" | "aggregator";
+  type: "indexnow" | "ping" | "directory" | "aggregator" | "local_citation";
   status: "success" | "pending" | "failed";
   message: string;
   timestamp: string;
   targetUrl: string;
+  domainAuthority?: number;
+  category?: string;
+  location?: string;
 }
 
 export interface BacklinkVerificationResult {
@@ -144,3 +175,4 @@ export interface BacklinkVerificationResult {
   relAttributes: string[];
   lastChecked: string;
 }
+

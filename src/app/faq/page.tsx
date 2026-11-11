@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { HelpCircle, Search, ChevronDown, ChevronUp, Copy, Check, Sparkles, Layers } from "lucide-react";
-import { SEO_FAQS, FAQItem } from "@/lib/faq-data";
+import { HelpCircle, Search, ChevronDown, ChevronUp, Copy, Check, Sparkles } from "lucide-react";
+import { SEO_FAQS } from "@/lib/faq-data";
 
 export default function FaqPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -64,35 +64,35 @@ export default function FaqPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
             1,000 Programmatic FAQs with Schema.org JSON-LD
           </div>
-          <h1 className="text-2xl font-bold text-white flex items-center gap-2.5">
-            <HelpCircle className="w-6 h-6 text-[#FF642D]" />
+          <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+            <HelpCircle className="w-6 h-6 text-blue-600" />
             SEO Software Knowledge Base & FAQs
           </h1>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Browse 1,000 in-depth answers engineered to capture Google featured snippets, Perplexity answers, and #1 rankings.
           </p>
         </div>
 
         <div className="text-right">
-          <span className="text-xs font-mono text-gray-400">Total Database:</span>
-          <div className="text-2xl font-black text-white">{SEO_FAQS.length.toLocaleString()} FAQs</div>
+          <span className="text-xs font-mono text-slate-500">Total Database:</span>
+          <div className="text-2xl font-black text-slate-900">{SEO_FAQS.length.toLocaleString()} FAQs</div>
         </div>
       </div>
 
       {/* Search & Category Filter Bar */}
-      <div className="p-4 rounded-xl bg-[#141824] border border-[#232B3B] space-y-4">
+      <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
         <div className="relative">
-          <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search across all 1,000 FAQs (e.g. indexnow, canonical tags, core web vitals, GEO)..."
-            className="w-full bg-[#0E121A] text-sm text-gray-100 placeholder-gray-500 pl-10 pr-4 py-2.5 rounded-lg border border-[#283244] focus:outline-none focus:border-[#FF642D]"
+            className="w-full bg-slate-50 text-sm text-slate-900 placeholder-slate-400 pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 focus:outline-none focus:border-blue-600 focus:bg-white"
           />
         </div>
 
@@ -104,8 +104,8 @@ export default function FaqPage() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition-all ${
                 selectedCategory === cat
-                  ? "bg-[#FF642D] text-white font-semibold shadow"
-                  : "bg-[#0E121A] text-gray-400 hover:text-white border border-[#232B3B]"
+                  ? "bg-blue-600 text-white font-semibold shadow-sm"
+                  : "bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200"
               }`}
             >
               {cat === "ALL" ? "All Categories (1,000)" : cat}
@@ -115,7 +115,7 @@ export default function FaqPage() {
       </div>
 
       {/* FAQ Count Indicator */}
-      <div className="flex items-center justify-between text-xs text-gray-400 px-1">
+      <div className="flex items-center justify-between text-xs text-slate-500 px-1">
         <span>Showing {filteredFaqs.length} of 1,000 FAQs</span>
         {searchQuery && <span>Filtered by: "{searchQuery}"</span>}
       </div>
@@ -130,8 +130,8 @@ export default function FaqPage() {
               id={faq.id}
               className={`rounded-xl border transition-all ${
                 isOpen
-                  ? "bg-[#181E2C] border-[#FF642D]/50 shadow-lg"
-                  : "bg-[#141824] border-[#232B3B] hover:border-gray-700"
+                  ? "bg-blue-50/40 border-blue-200 shadow-sm"
+                  : "bg-white border-slate-200 hover:border-slate-300 shadow-sm"
               }`}
             >
               <button
@@ -139,26 +139,26 @@ export default function FaqPage() {
                 className="w-full p-4 text-left flex items-center justify-between gap-4"
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0E121A] text-gray-400 border border-[#222938]">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
                     {faq.category}
                   </span>
-                  <span className="text-sm font-semibold text-white">{faq.question}</span>
+                  <span className="text-sm font-semibold text-slate-900">{faq.question}</span>
                 </div>
-                <div className="shrink-0 text-gray-400">
-                  {isOpen ? <ChevronUp className="w-4 h-4 text-[#FF642D]" /> : <ChevronDown className="w-4 h-4" />}
+                <div className="shrink-0 text-slate-500">
+                  {isOpen ? <ChevronUp className="w-4 h-4 text-blue-600" /> : <ChevronDown className="w-4 h-4" />}
                 </div>
               </button>
 
               {isOpen && (
-                <div className="px-4 pb-4 pt-1 text-xs text-gray-300 border-t border-[#232B3B] space-y-3 leading-relaxed">
+                <div className="px-4 pb-4 pt-1 text-xs text-slate-700 border-t border-slate-200 space-y-3 leading-relaxed">
                   <p>{faq.answer}</p>
-                  <div className="pt-2 flex items-center justify-between text-[11px] text-gray-500 border-t border-[#232B3B]">
+                  <div className="pt-2 flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-200">
                     <span>FAQ ID: {faq.id} • Structured with Schema.org FAQPage</span>
                     <button
                       onClick={() => copyFaqLink(faq.id)}
-                      className="flex items-center gap-1 text-gray-400 hover:text-white transition-colors"
+                      className="flex items-center gap-1 text-slate-500 hover:text-blue-600 transition-colors"
                     >
-                      {copiedId === faq.id ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      {copiedId === faq.id ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>Copy Direct Link</span>
                     </button>
                   </div>
@@ -169,7 +169,7 @@ export default function FaqPage() {
         })}
 
         {filteredFaqs.length > 100 && (
-          <div className="p-4 text-center rounded-xl bg-[#141824] border border-[#232B3B] text-xs text-gray-400">
+          <div className="p-4 text-center rounded-xl bg-white border border-slate-200 text-xs text-slate-500 shadow-sm">
             Displaying first 100 matching FAQs. Refine your query or choose a specific category above to explore all 1,000 answers.
           </div>
         )}

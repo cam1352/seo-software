@@ -1,15 +1,11 @@
 "use client";
 
-import { Suspense,  useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   FileText,
   Sparkles,
-  CheckCircle2,
-  AlertTriangle,
   Clock,
-  BookOpen,
-  Award,
   Zap,
 } from "lucide-react";
 import { analyzeContent, ContentAnalysisResult } from "@/lib/content-optimizer";
@@ -51,37 +47,37 @@ function ContentOptimizerContent() {
       {/* Top Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-semibold mb-2">
-            <Zap className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-2">
+            <Zap className="w-3.5 h-3.5 text-blue-600" />
             Semrush SEO Writing Assistant Clone
           </div>
-          <h1 className="text-2xl font-bold text-white flex items-center gap-2.5">
-            <FileText className="w-6 h-6 text-rose-400" />
+          <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+            <FileText className="w-6 h-6 text-blue-600" />
             SEO Writing Assistant & Content Optimizer
           </h1>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Real-time readability analysis, keyword density tracking, and on-page optimization recommendations.
           </p>
         </div>
       </div>
 
       {/* Target Keywords Input */}
-      <div className="p-4 rounded-xl bg-[#141824] border border-[#232B3B] flex flex-col sm:flex-row sm:items-center gap-3">
-        <label className="text-xs font-bold text-gray-300 whitespace-nowrap">Target Keywords (comma-separated):</label>
+      <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center gap-3">
+        <label className="text-xs font-bold text-slate-700 whitespace-nowrap">Target Keywords (comma-separated):</label>
         <input
           type="text"
           value={keywordsInput}
           onChange={(e) => setKeywordsInput(e.target.value)}
           placeholder="e.g. seo software, site audit, rank #1"
-          className="flex-1 bg-[#0E121A] text-sm text-gray-100 px-3.5 py-2 rounded-lg border border-[#283244] focus:outline-none focus:border-rose-500"
+          className="flex-1 bg-slate-50 text-sm text-slate-900 placeholder-slate-400 px-3.5 py-2 rounded-lg border border-slate-200 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-1 focus:ring-blue-600"
         />
       </div>
 
       {/* Editor & Metrics Workspace */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         {/* Editor Box */}
-        <div className="lg:col-span-2 rounded-xl bg-[#141824] border border-[#232B3B] overflow-hidden flex flex-col">
-          <div className="p-3.5 bg-[#0E121A] border-b border-[#232B3B] flex items-center justify-between text-xs text-gray-400 font-medium">
+        <div className="lg:col-span-2 rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+          <div className="p-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-xs text-slate-600 font-medium">
             <span>Markdown / Content Editor</span>
             <div className="flex items-center gap-4">
               <span>{analysis?.wordCount || 0} words</span>
@@ -93,7 +89,7 @@ function ContentOptimizerContent() {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             rows={22}
-            className="w-full bg-[#141824] p-5 text-sm text-gray-100 font-mono focus:outline-none resize-y leading-relaxed"
+            className="w-full bg-white p-5 text-sm text-slate-900 font-mono focus:outline-none resize-y leading-relaxed"
             placeholder="Paste or compose your article draft here..."
           />
         </div>
@@ -101,56 +97,56 @@ function ContentOptimizerContent() {
         {/* Real-Time Metrics Sidebar */}
         <div className="space-y-4">
           {/* SEO Score & Readability Card */}
-          <div className="p-5 rounded-xl bg-[#141824] border border-[#232B3B] space-y-4">
+          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-4">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-white uppercase tracking-wider">Content SEO Score</span>
-              <span className="text-2xl font-black text-rose-400">{analysis?.score || 0}/100</span>
+              <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">Content SEO Score</span>
+              <span className="text-2xl font-black text-blue-600">{analysis?.score || 0}/100</span>
             </div>
-            <div className="h-2 rounded-full bg-[#0E121A] overflow-hidden">
+            <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-amber-500 to-rose-500 transition-all duration-500"
+                className="h-full bg-blue-600 transition-all duration-500"
                 style={{ width: `${analysis?.score || 0}%` }}
               />
             </div>
 
             {/* Readability */}
-            <div className="pt-3 border-t border-[#232B3B] space-y-2 text-xs">
-              <div className="flex justify-between text-gray-300">
+            <div className="pt-3 border-t border-slate-100 space-y-2 text-xs">
+              <div className="flex justify-between text-slate-600">
                 <span>Flesch Reading Ease:</span>
-                <span className="font-bold text-white">{analysis?.readability.fleschReadingEase}/100</span>
+                <span className="font-bold text-slate-900">{analysis?.readability.fleschReadingEase}/100</span>
               </div>
-              <div className="flex justify-between text-gray-300">
+              <div className="flex justify-between text-slate-600">
                 <span>Target Audience Level:</span>
-                <span className="font-semibold text-purple-300">{analysis?.readability.gradeLevel}</span>
+                <span className="font-semibold text-indigo-600">{analysis?.readability.gradeLevel}</span>
               </div>
-              <div className="flex justify-between text-gray-300">
+              <div className="flex justify-between text-slate-600">
                 <span>Ease Label:</span>
-                <span className="font-semibold text-emerald-400">{analysis?.readability.readingEaseLabel}</span>
+                <span className="font-semibold text-emerald-600">{analysis?.readability.readingEaseLabel}</span>
               </div>
             </div>
           </div>
 
           {/* Keyword Density Tracker */}
-          <div className="p-5 rounded-xl bg-[#141824] border border-[#232B3B] space-y-3">
-            <h3 className="text-xs font-bold text-white uppercase tracking-wider">Keyword Density Analysis</h3>
+          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
+            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Keyword Density Analysis</h3>
             <div className="space-y-2.5">
               {analysis?.keywordsAnalysis.map((k) => (
-                <div key={k.keyword} className="p-2.5 rounded-lg bg-[#0E121A] border border-[#222938] text-xs space-y-1">
+                <div key={k.keyword} className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-xs space-y-1">
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold text-white truncate max-w-[150px]">{k.keyword}</span>
+                    <span className="font-semibold text-slate-900 truncate max-w-[150px]">{k.keyword}</span>
                     <span
-                      className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
+                      className={`px-1.5 py-0.5 rounded text-[10px] font-bold border ${
                         k.status === "optimal"
-                          ? "bg-emerald-500/20 text-emerald-300"
+                          ? "bg-emerald-50 text-emerald-700 border-emerald-200"
                           : k.status === "low"
-                          ? "bg-amber-500/20 text-amber-300"
-                          : "bg-red-500/20 text-red-300"
+                          ? "bg-amber-50 text-amber-700 border-amber-200"
+                          : "bg-red-50 text-red-700 border-red-200"
                       }`}
                     >
                       {k.status.toUpperCase()} ({k.densityPercent}%)
                     </span>
                   </div>
-                  <div className="text-[11px] text-gray-400">
+                  <div className="text-[11px] text-slate-500">
                     Found {k.count} times in text
                   </div>
                 </div>
@@ -159,14 +155,14 @@ function ContentOptimizerContent() {
           </div>
 
           {/* Actionable Recommendations */}
-          <div className="p-5 rounded-xl bg-[#141824] border border-[#232B3B] space-y-2.5">
-            <h3 className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+          <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-2.5">
+            <h3 className="text-xs font-bold text-blue-600 uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" /> Content Checklist
             </h3>
             <div className="space-y-2 text-xs">
               {analysis?.recommendations.map((rec, idx) => (
-                <div key={idx} className="p-2 rounded-lg bg-[#0E121A] border border-[#222938] text-gray-300 leading-relaxed flex items-start gap-2">
-                  <span className="text-[#FF642D] font-bold mt-0.5">•</span>
+                <div key={idx} className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-700 leading-relaxed flex items-start gap-2">
+                  <span className="text-blue-600 font-bold mt-0.5">•</span>
                   <span>{rec}</span>
                 </div>
               ))}
@@ -178,10 +174,9 @@ function ContentOptimizerContent() {
   );
 }
 
-
 export default function ContentOptimizerPage() {
   return (
-    <Suspense fallback={<div className="p-8 text-center text-gray-400">Loading Content Assistant...</div>}>
+    <Suspense fallback={<div className="p-8 text-center text-slate-500">Loading Content Assistant...</div>}>
       <ContentOptimizerContent />
     </Suspense>
   );

@@ -12,14 +12,17 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        semrush: {
-          orange: "#FF642D",
-          dark: "#171A22",
-          surface: "#1F232E",
-          border: "#2C3242",
-          blue: "#356AE6",
-          green: "#00C288",
-          purple: "#7357FF",
+        brand: {
+          50: "#EFF6FF",
+          100: "#DBEAFE",
+          200: "#BFDBFE",
+          300: "#93C5FD",
+          400: "#60A5FA",
+          500: "#3B82F6",
+          600: "#2563EB",
+          700: "#1D4ED8",
+          800: "#1E40AF",
+          900: "#1E3A8A",
         }
       },
     },

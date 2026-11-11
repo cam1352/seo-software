@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense,  useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   Sparkles,
@@ -11,8 +11,6 @@ import {
   CheckCircle2,
   AlertCircle,
   Search,
-  ExternalLink,
-  ShieldCheck,
   Zap,
 } from "lucide-react";
 import { GeoReport } from "@/lib/types";
@@ -64,20 +62,20 @@ function GeoTrackerContent() {
       {/* Top Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white flex items-center gap-2.5">
-            <Sparkles className="w-6 h-6 text-purple-400" />
+          <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+            <Sparkles className="w-6 h-6 text-blue-600" />
             GEO & AI Visibility Tracker
           </h1>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Track citations in AI answer engines (ChatGPT, Perplexity, Google AI Overviews) and multi-region geographic rankings.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 bg-[#141824] p-1 rounded-lg border border-[#232B3B] self-start md:self-auto text-xs font-semibold">
+        <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-lg border border-slate-200 self-start md:self-auto text-xs font-semibold">
           <button
             onClick={() => setActiveTab("ai")}
             className={`flex items-center gap-2 px-3 py-1.5 rounded-md transition-all ${
-              activeTab === "ai" ? "bg-purple-600 text-white shadow" : "text-gray-400 hover:text-white"
+              activeTab === "ai" ? "bg-blue-600 text-white shadow-sm" : "text-slate-600 hover:text-slate-900"
             }`}
           >
             <Bot className="w-4 h-4" />
@@ -86,7 +84,7 @@ function GeoTrackerContent() {
           <button
             onClick={() => setActiveTab("geo")}
             className={`flex items-center gap-2 px-3 py-1.5 rounded-md transition-all ${
-              activeTab === "geo" ? "bg-blue-600 text-white shadow" : "text-gray-400 hover:text-white"
+              activeTab === "geo" ? "bg-blue-600 text-white shadow-sm" : "text-slate-600 hover:text-slate-900"
             }`}
           >
             <MapPin className="w-4 h-4" />
@@ -96,32 +94,32 @@ function GeoTrackerContent() {
       </div>
 
       {/* Target & Query Search Form */}
-      <form onSubmit={handleSubmit} className="p-4 rounded-xl bg-[#141824] border border-[#232B3B] grid grid-cols-1 md:grid-cols-3 gap-3">
+      <form onSubmit={handleSubmit} className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-3">
         <div>
-          <label className="text-[11px] font-semibold text-gray-400 block mb-1">Brand or Domain</label>
+          <label className="text-[11px] font-semibold text-slate-600 block mb-1">Brand or Domain</label>
           <input
             type="text"
             value={targetInput}
             onChange={(e) => setTargetInput(e.target.value)}
             placeholder="e.g. stripe, openai, yourbrand.com"
-            className="w-full bg-[#0E121A] text-sm text-gray-100 px-3 py-2 rounded-lg border border-[#283244] focus:outline-none focus:border-purple-500"
+            className="w-full bg-slate-50 text-sm text-slate-900 placeholder-slate-400 px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-1 focus:ring-blue-600"
           />
         </div>
         <div>
-          <label className="text-[11px] font-semibold text-gray-400 block mb-1">Target Keyword Topic</label>
+          <label className="text-[11px] font-semibold text-slate-600 block mb-1">Target Keyword Topic</label>
           <input
             type="text"
             value={queryInput}
             onChange={(e) => setQueryInput(e.target.value)}
             placeholder="e.g. best payment gateway"
-            className="w-full bg-[#0E121A] text-sm text-gray-100 px-3 py-2 rounded-lg border border-[#283244] focus:outline-none focus:border-purple-500"
+            className="w-full bg-slate-50 text-sm text-slate-900 placeholder-slate-400 px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-1 focus:ring-blue-600"
           />
         </div>
         <div className="flex items-end">
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-white text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-purple-600/20 transition-all"
+            className="w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white text-sm font-bold flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 transition-all"
           >
             {loading ? (
               <>
@@ -142,45 +140,45 @@ function GeoTrackerContent() {
         <>
           {/* Top Score Cards */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="p-4 rounded-xl bg-[#141824] border border-[#232B3B]">
-              <span className="text-xs text-gray-400">GEO Visibility Score</span>
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+              <span className="text-xs text-slate-500">GEO Visibility Score</span>
               <div className="mt-2 flex items-baseline gap-1.5">
-                <span className="text-2xl font-black text-purple-400">{report.overallVisibilityScore}</span>
-                <span className="text-xs text-gray-500">/100</span>
+                <span className="text-2xl font-black text-blue-600">{report.overallVisibilityScore}</span>
+                <span className="text-xs text-slate-400">/100</span>
               </div>
-              <span className="text-[11px] text-emerald-400 mt-1 block">High AI Presence</span>
+              <span className="text-[11px] text-emerald-600 font-semibold mt-1 block">High AI Presence</span>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#141824] border border-[#232B3B]">
-              <span className="text-xs text-gray-400">AI Citation Share</span>
-              <div className="mt-2 text-2xl font-black text-white">
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+              <span className="text-xs text-slate-500">AI Citation Share</span>
+              <div className="mt-2 text-2xl font-black text-slate-900">
                 {report.citationSharePercent}%
               </div>
-              <span className="text-[11px] text-gray-500 mt-1 block">Across 5 AI Engines</span>
+              <span className="text-[11px] text-slate-400 mt-1 block">Across 5 AI Engines</span>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#141824] border border-[#232B3B]">
-              <span className="text-xs text-gray-400">Top Geo Rank</span>
-              <div className="mt-2 text-2xl font-black text-emerald-400">
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+              <span className="text-xs text-slate-500">Top Geo Rank</span>
+              <div className="mt-2 text-2xl font-black text-emerald-600">
                 #{report.geoLocations[0]?.rankingPosition || 1}
               </div>
-              <span className="text-[11px] text-gray-500 mt-1 block">In {report.geoLocations[0]?.countryName}</span>
+              <span className="text-[11px] text-slate-400 mt-1 block">In {report.geoLocations[0]?.countryName}</span>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#141824] border border-[#232B3B]">
-              <span className="text-xs text-gray-400">Local Pack Presence</span>
-              <div className="mt-2 text-2xl font-black text-blue-400">
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+              <span className="text-xs text-slate-500">Local Pack Presence</span>
+              <div className="mt-2 text-2xl font-black text-blue-600">
                 {report.geoLocations.filter((g) => g.hasLocalPack).length} / 12
               </div>
-              <span className="text-[11px] text-gray-500 mt-1 block">Countries with Maps 3-Pack</span>
+              <span className="text-[11px] text-slate-400 mt-1 block">Countries with Maps 3-Pack</span>
             </div>
           </div>
 
           {/* Tab 1: AI Engines */}
           {activeTab === "ai" && (
             <div className="space-y-4">
-              <h2 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                <Bot className="w-4 h-4 text-purple-400" />
+              <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                <Bot className="w-4 h-4 text-blue-600" />
                 Generative AI Citations & Answers
               </h2>
 
@@ -188,34 +186,34 @@ function GeoTrackerContent() {
                 {report.aiEngines.map((engine, idx) => (
                   <div
                     key={idx}
-                    className="p-5 rounded-xl bg-[#141824] border border-[#232B3B] hover:border-purple-500/40 transition-all space-y-3"
+                    className="p-5 rounded-xl bg-white border border-slate-200 hover:border-blue-300 shadow-sm transition-all space-y-3"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-white text-sm">{engine.engine}</span>
+                        <span className="font-bold text-slate-900 text-sm">{engine.engine}</span>
                         <span
-                          className={`text-[10px] font-bold px-2 py-0.5 rounded ${
+                          className={`text-[10px] font-bold px-2 py-0.5 rounded border ${
                             engine.cited
-                              ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
-                              : "bg-gray-700/50 text-gray-400"
+                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                              : "bg-slate-100 text-slate-500 border-slate-200"
                           }`}
                         >
                           {engine.cited ? `Cited (Source #${engine.citationRank})` : "Not Cited"}
                         </span>
                       </div>
-                      <span className="text-xs text-purple-400 font-mono font-semibold">
+                      <span className="text-xs text-blue-600 font-mono font-bold">
                         {engine.confidenceScore}% Confidence
                       </span>
                     </div>
 
-                    <div className="p-3 rounded-lg bg-[#0E121A] border border-[#222938] text-xs text-gray-300 leading-relaxed font-sans">
-                      <strong className="text-gray-400 block mb-1">Simulated AI Answer Snippet:</strong>
+                    <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed font-sans">
+                      <strong className="text-slate-500 block mb-1">Simulated AI Answer Snippet:</strong>
                       "{engine.snippet}"
                     </div>
 
-                    <div className="flex items-center justify-between text-xs text-gray-400">
-                      <span>Sentiment: <strong className="text-emerald-400">{engine.sentiment}</strong></span>
-                      <span className="text-[11px] text-gray-500 truncate max-w-[200px]" title={engine.recommendedQuery}>
+                    <div className="flex items-center justify-between text-xs text-slate-500">
+                      <span>Sentiment: <strong className="text-emerald-600">{engine.sentiment}</strong></span>
+                      <span className="text-[11px] text-slate-400 truncate max-w-[200px]" title={engine.recommendedQuery}>
                         Winning Query: {engine.recommendedQuery}
                       </span>
                     </div>
@@ -224,15 +222,15 @@ function GeoTrackerContent() {
               </div>
 
               {/* Actionable Insights */}
-              <div className="p-5 rounded-xl bg-[#141824] border border-[#232B3B] space-y-3">
-                <h3 className="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-2">
+              <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm space-y-3">
+                <h3 className="text-xs font-bold text-blue-600 uppercase tracking-wider flex items-center gap-2">
                   <Zap className="w-4 h-4" />
                   GEO Actionable Insights & Optimization Checklist
                 </h3>
-                <div className="space-y-2 text-xs text-gray-300">
+                <div className="space-y-2 text-xs text-slate-700">
                   {report.actionableInsights.map((insight, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 p-2.5 rounded-lg bg-[#0E121A] border border-[#222938]">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <div key={idx} className="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                       <span>{insight}</span>
                     </div>
                   ))}
@@ -243,18 +241,18 @@ function GeoTrackerContent() {
 
           {/* Tab 2: Geographic SERP Tracking */}
           {activeTab === "geo" && (
-            <div className="rounded-xl bg-[#141824] border border-[#232B3B] overflow-hidden">
-              <div className="p-4 border-b border-[#232B3B] flex items-center justify-between">
-                <h2 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-blue-400" />
+            <div className="rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden">
+              <div className="p-4 border-b border-slate-100 flex items-center justify-between">
+                <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-blue-600" />
                   Multi-Country SERP Performance (12 Regions)
                 </h2>
-                <span className="text-xs text-gray-400">Localized Search Queries</span>
+                <span className="text-xs text-slate-500">Localized Search Queries</span>
               </div>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-[#0E121A] text-gray-400 uppercase font-semibold">
+                  <thead className="bg-slate-50 text-slate-600 uppercase font-semibold border-b border-slate-200">
                     <tr>
                       <th className="py-3 px-4">Region</th>
                       <th className="py-3 px-4">Rank Position</th>
@@ -264,11 +262,11 @@ function GeoTrackerContent() {
                       <th className="py-3 px-4">Top Result</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1D2330]">
+                  <tbody className="divide-y divide-slate-100">
                     {report.geoLocations.map((loc, idx) => (
-                      <tr key={idx} className="hover:bg-[#181E2B] transition-colors">
-                        <td className="py-3 px-4 font-semibold text-white flex items-center gap-2">
-                          <span className="w-6 text-center font-mono text-[10px] bg-[#222938] px-1 py-0.5 rounded text-gray-300">
+                      <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                        <td className="py-3 px-4 font-semibold text-slate-900 flex items-center gap-2">
+                          <span className="w-6 text-center font-mono text-[10px] bg-slate-100 px-1 py-0.5 rounded text-slate-700 border border-slate-200">
                             {loc.countryCode}
                           </span>
                           <span>{loc.countryName}</span>
@@ -276,37 +274,37 @@ function GeoTrackerContent() {
 
                         <td className="py-3 px-4">
                           <span
-                            className={`px-2 py-0.5 rounded font-mono font-bold text-xs ${
+                            className={`px-2 py-0.5 rounded font-mono font-bold text-xs border ${
                               loc.rankingPosition <= 3
-                                ? "bg-emerald-500/20 text-emerald-300"
+                                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
                                 : loc.rankingPosition <= 10
-                                ? "bg-blue-500/20 text-blue-300"
-                                : "bg-amber-500/20 text-amber-300"
+                                ? "bg-blue-50 text-blue-700 border-blue-200"
+                                : "bg-amber-50 text-amber-700 border-amber-200"
                             }`}
                           >
                             #{loc.rankingPosition}
                           </span>
                         </td>
 
-                        <td className="py-3 px-4 font-mono text-gray-200">
+                        <td className="py-3 px-4 font-mono text-slate-800">
                           {loc.searchVolume.toLocaleString()} /mo
                         </td>
 
-                        <td className="py-3 px-4 font-mono text-gray-300">
+                        <td className="py-3 px-4 font-mono text-slate-700">
                           ${loc.cpc.toFixed(2)}
                         </td>
 
                         <td className="py-3 px-4">
                           {loc.hasLocalPack ? (
-                            <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">
+                            <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold">
                               Maps Pack Active
                             </span>
                           ) : (
-                            <span className="text-gray-500 text-[11px]">Standard SERP</span>
+                            <span className="text-slate-400 text-[11px]">Standard SERP</span>
                           )}
                         </td>
 
-                        <td className="py-3 px-4 font-mono text-gray-400 truncate max-w-[180px]">
+                        <td className="py-3 px-4 font-mono text-slate-500 truncate max-w-[180px]">
                           {loc.serpTopResult}
                         </td>
                       </tr>
@@ -322,10 +320,9 @@ function GeoTrackerContent() {
   );
 }
 
-
 export default function GeoTrackerPage() {
   return (
-    <Suspense fallback={<div className="p-8 text-center text-gray-400">Loading GEO Tracker...</div>}>
+    <Suspense fallback={<div className="p-8 text-center text-slate-500">Loading GEO Tracker...</div>}>
       <GeoTrackerContent />
     </Suspense>
   );

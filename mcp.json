@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "seo-software": {
+      "url": "https://seosoftware.io/api/mcp",
+      "description": "Production SEO Software MCP endpoint"
+    },
+    "seo-software-local": {
+      "url": "http://localhost:3000/api/mcp",
+      "description": "Local development SEO Software MCP endpoint"
+    }
+  }
+}

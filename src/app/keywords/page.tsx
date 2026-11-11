@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense,  useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import {
   Search,
@@ -9,9 +9,6 @@ import {
   Copy,
   Check,
   Sparkles,
-  ArrowUpDown,
-  HelpCircle,
-  ExternalLink,
 } from "lucide-react";
 import { KeywordItem } from "@/lib/types";
 
@@ -111,23 +108,23 @@ function KeywordsContent() {
   });
 
   const getKdBadge = (kd: number) => {
-    if (kd < 30) return { label: "Very Easy", color: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30" };
-    if (kd < 50) return { label: "Easy", color: "bg-teal-500/20 text-teal-300 border-teal-500/30" };
-    if (kd < 70) return { label: "Possible", color: "bg-amber-500/20 text-amber-300 border-amber-500/30" };
-    if (kd < 85) return { label: "Difficult", color: "bg-orange-500/20 text-orange-300 border-orange-500/30" };
-    return { label: "Hard", color: "bg-red-500/20 text-red-300 border-red-500/30" };
+    if (kd < 30) return { label: "Very Easy", color: "bg-emerald-50 text-emerald-700 border-emerald-200" };
+    if (kd < 50) return { label: "Easy", color: "bg-teal-50 text-teal-700 border-teal-200" };
+    if (kd < 70) return { label: "Possible", color: "bg-amber-50 text-amber-700 border-amber-200" };
+    if (kd < 85) return { label: "Difficult", color: "bg-orange-50 text-orange-700 border-orange-200" };
+    return { label: "Hard", color: "bg-red-50 text-red-700 border-red-200" };
   };
 
   const getIntentBadge = (intent: KeywordItem["intent"]) => {
     switch (intent) {
       case "Transactional":
-        return { label: "T", desc: "Transactional", bg: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40" };
+        return { label: "T", desc: "Transactional", bg: "bg-emerald-50 text-emerald-700 border-emerald-200" };
       case "Commercial":
-        return { label: "C", desc: "Commercial", bg: "bg-amber-500/20 text-amber-300 border-amber-500/40" };
+        return { label: "C", desc: "Commercial", bg: "bg-amber-50 text-amber-700 border-amber-200" };
       case "Navigational":
-        return { label: "N", desc: "Navigational", bg: "bg-blue-500/20 text-blue-300 border-blue-500/40" };
+        return { label: "N", desc: "Navigational", bg: "bg-blue-50 text-blue-700 border-blue-200" };
       default:
-        return { label: "I", desc: "Informational", bg: "bg-purple-500/20 text-purple-300 border-purple-500/40" };
+        return { label: "I", desc: "Informational", bg: "bg-indigo-50 text-indigo-700 border-indigo-200" };
     }
   };
 
@@ -136,11 +133,11 @@ function KeywordsContent() {
       {/* Top Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white flex items-center gap-2.5">
-            <Search className="w-6 h-6 text-[#FF642D]" />
+          <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2.5">
+            <Search className="w-6 h-6 text-blue-600" />
             Keyword Magic Tool
           </h1>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Explore live search suggestions, intent classification, difficulty (KD%), and topic clustering.
           </p>
         </div>
@@ -148,30 +145,30 @@ function KeywordsContent() {
         {keywords.length > 0 && (
           <button
             onClick={exportCsv}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#161C27] border border-[#283244] text-xs font-semibold text-gray-200 hover:text-white hover:border-gray-500 transition-all self-start md:self-auto"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-200 transition-all self-start md:self-auto"
           >
-            <Download className="w-4 h-4 text-emerald-400" />
+            <Download className="w-4 h-4 text-emerald-600" />
             Export CSV ({filteredKeywords.length})
           </button>
         )}
       </div>
 
       {/* Seed Search Form */}
-      <form onSubmit={handleSearch} className="p-4 rounded-xl bg-[#141824] border border-[#232B3B] flex items-center gap-3">
+      <form onSubmit={handleSearch} className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <div className="relative flex-1">
-          <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={seedInput}
             onChange={(e) => setSeedInput(e.target.value)}
             placeholder="Enter seed keyword (e.g. running shoes, crm, ai seo)..."
-            className="w-full bg-[#0E121A] text-sm text-gray-100 placeholder-gray-500 pl-10 pr-4 py-2.5 rounded-lg border border-[#283244] focus:outline-none focus:border-[#FF642D]"
+            className="w-full bg-slate-50 text-sm text-slate-900 placeholder-slate-400 pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-1 focus:ring-blue-600"
           />
         </div>
         <button
           type="submit"
           disabled={loading}
-          className="px-6 py-2.5 rounded-lg bg-[#FF642D] hover:bg-[#E55724] disabled:opacity-50 text-white text-sm font-bold flex items-center gap-2 shadow-lg shadow-[#FF642D]/20 transition-all"
+          className="px-6 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white text-sm font-bold flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 transition-all"
         >
           {loading ? (
             <>
@@ -188,13 +185,13 @@ function KeywordsContent() {
       </form>
 
       {/* Filters Bar */}
-      <div className="p-4 rounded-xl bg-[#141824] border border-[#232B3B] flex flex-wrap items-center justify-between gap-4 text-xs">
+      <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4 text-xs">
         {/* Match Type Pills */}
-        <div className="flex items-center gap-1.5 bg-[#0E121A] p-1 rounded-lg border border-[#232B3B]">
+        <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-lg border border-slate-200">
           <button
             onClick={() => setMatchType("broad")}
             className={`px-3 py-1.5 rounded-md font-medium transition-all ${
-              matchType === "broad" ? "bg-[#FF642D] text-white" : "text-gray-400 hover:text-white"
+              matchType === "broad" ? "bg-blue-600 text-white font-semibold shadow-sm" : "text-slate-600 hover:text-slate-900"
             }`}
           >
             Broad Match
@@ -202,7 +199,7 @@ function KeywordsContent() {
           <button
             onClick={() => setMatchType("phrase")}
             className={`px-3 py-1.5 rounded-md font-medium transition-all ${
-              matchType === "phrase" ? "bg-[#FF642D] text-white" : "text-gray-400 hover:text-white"
+              matchType === "phrase" ? "bg-blue-600 text-white font-semibold shadow-sm" : "text-slate-600 hover:text-slate-900"
             }`}
           >
             Phrase Match
@@ -210,7 +207,7 @@ function KeywordsContent() {
           <button
             onClick={() => setMatchType("questions")}
             className={`px-3 py-1.5 rounded-md font-medium transition-all ${
-              matchType === "questions" ? "bg-[#FF642D] text-white" : "text-gray-400 hover:text-white"
+              matchType === "questions" ? "bg-blue-600 text-white font-semibold shadow-sm" : "text-slate-600 hover:text-slate-900"
             }`}
           >
             Questions
@@ -219,15 +216,15 @@ function KeywordsContent() {
 
         {/* Intent Selector */}
         <div className="flex items-center gap-2">
-          <span className="text-gray-400 font-medium">Intent:</span>
+          <span className="text-slate-500 font-medium">Intent:</span>
           {["ALL", "Informational", "Commercial", "Transactional", "Navigational"].map((int) => (
             <button
               key={int}
               onClick={() => setSelectedIntent(int)}
               className={`px-2.5 py-1 rounded-md font-medium transition-all ${
                 selectedIntent === int
-                  ? "bg-[#252E3E] text-white border border-gray-600"
-                  : "text-gray-400 hover:text-gray-200"
+                  ? "bg-blue-50 text-blue-700 font-bold border border-blue-200"
+                  : "text-slate-600 hover:text-slate-900"
               }`}
             >
               {int === "ALL" ? "All" : int.slice(0, 4)}
@@ -237,11 +234,11 @@ function KeywordsContent() {
 
         {/* Max KD% Range */}
         <div className="flex items-center gap-2">
-          <span className="text-gray-400 font-medium">Max KD%:</span>
+          <span className="text-slate-500 font-medium">Max KD%:</span>
           <select
             value={maxKd}
             onChange={(e) => setMaxKd(Number(e.target.value))}
-            className="bg-[#0E121A] text-gray-200 px-2 py-1 rounded border border-[#283244] focus:outline-none"
+            className="bg-white text-slate-800 px-2 py-1 rounded-md border border-slate-200 focus:outline-none focus:border-blue-600"
           >
             <option value={100}>Any KD% (0-100)</option>
             <option value={49}>Easy only (&lt; 50%)</option>
@@ -251,10 +248,10 @@ function KeywordsContent() {
       </div>
 
       {/* Keywords Table */}
-      <div className="rounded-xl bg-[#141824] border border-[#232B3B] overflow-hidden">
+      <div className="rounded-xl bg-white border border-slate-200 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-[#0E121A] text-gray-400 uppercase tracking-wider font-semibold border-b border-[#232B3B]">
+            <thead className="bg-slate-50 text-slate-600 uppercase tracking-wider font-semibold border-b border-slate-200">
               <tr>
                 <th className="py-3.5 px-4">Keyword</th>
                 <th className="py-3.5 px-3">Intent</th>
@@ -265,10 +262,10 @@ function KeywordsContent() {
                 <th className="py-3.5 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#1D2330]">
+            <tbody className="divide-y divide-slate-100">
               {filteredKeywords.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="py-12 text-center text-gray-400">
+                  <td colSpan={7} className="py-12 text-center text-slate-400">
                     {loading ? "Gathering live keyword intelligence..." : "No keywords match your selected filters."}
                   </td>
                 </tr>
@@ -278,16 +275,16 @@ function KeywordsContent() {
                   const intentInfo = getIntentBadge(k.intent);
 
                   return (
-                    <tr key={idx} className="hover:bg-[#181E2B] transition-colors group">
-                      <td className="py-3.5 px-4 font-medium text-white">
+                    <tr key={idx} className="hover:bg-slate-50 transition-colors group">
+                      <td className="py-3.5 px-4 font-medium text-slate-900">
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => copyToClipboard(k.keyword)}
                             title="Copy keyword"
-                            className="text-gray-500 hover:text-white transition-colors"
+                            className="text-slate-400 hover:text-slate-700 transition-colors"
                           >
                             {copiedKw === k.keyword ? (
-                              <Check className="w-3.5 h-3.5 text-emerald-400" />
+                              <Check className="w-3.5 h-3.5 text-emerald-600" />
                             ) : (
                               <Copy className="w-3.5 h-3.5" />
                             )}
@@ -305,7 +302,7 @@ function KeywordsContent() {
                         </span>
                       </td>
 
-                      <td className="py-3.5 px-4 font-mono font-semibold text-gray-200">
+                      <td className="py-3.5 px-4 font-mono font-semibold text-slate-800">
                         {k.volume.toLocaleString()}
                       </td>
 
@@ -314,11 +311,11 @@ function KeywordsContent() {
                           <span className={`px-2 py-0.5 rounded text-[11px] font-bold border ${kdInfo.color}`}>
                             {k.difficulty}%
                           </span>
-                          <span className="text-[10px] text-gray-400 hidden sm:inline">{kdInfo.label}</span>
+                          <span className="text-[10px] text-slate-500 hidden sm:inline">{kdInfo.label}</span>
                         </div>
                       </td>
 
-                      <td className="py-3.5 px-4 font-mono text-gray-300">
+                      <td className="py-3.5 px-4 font-mono text-slate-700">
                         ${k.cpc.toFixed(2)}
                       </td>
 
@@ -327,7 +324,7 @@ function KeywordsContent() {
                           {k.serpFeatures.map((feat) => (
                             <span
                               key={feat}
-                              className="px-1.5 py-0.5 rounded bg-[#202736] text-[10px] text-gray-300 font-mono"
+                              className="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] text-slate-600 font-mono border border-slate-200"
                             >
                               {feat}
                             </span>
@@ -338,7 +335,7 @@ function KeywordsContent() {
                       <td className="py-3.5 px-4 text-right">
                         <button
                           onClick={() => router.push(`/content?kw=${encodeURIComponent(k.keyword)}`)}
-                          className="px-2.5 py-1 rounded bg-[#222938] hover:bg-[#FF642D] hover:text-white text-gray-300 text-[11px] font-semibold transition-all inline-flex items-center gap-1"
+                          className="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-700 text-[11px] font-semibold transition-all inline-flex items-center gap-1"
                           title="Optimize in SEO Content Assistant"
                         >
                           Write
@@ -356,10 +353,9 @@ function KeywordsContent() {
   );
 }
 
-
 export default function KeywordsPage() {
   return (
-    <Suspense fallback={<div className="p-8 text-center text-gray-400">Loading Keyword Magic...</div>}>
+    <Suspense fallback={<div className="p-8 text-center text-slate-500">Loading Keyword Magic...</div>}>
       <KeywordsContent />
     </Suspense>
   );

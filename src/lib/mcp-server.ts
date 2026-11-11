@@ -43,7 +43,7 @@ export async function handleMcpToolCall(req: McpToolCallRequest): Promise<any> {
       const host = args.host || args.domain;
       if (!url) throw new Error("Missing 'url' argument");
       const indexNowRes = await submitToIndexNow(host || url, [url]);
-      const pingRes = await pingAggregators(args.siteName || host || "ApexSEO Site", url);
+      const pingRes = await pingAggregators(args.siteName || host || "SEO Software Site", url);
       return { indexNow: indexNowRes, pings: pingRes };
     }
 
@@ -71,9 +71,9 @@ export async function handleMcpToolCall(req: McpToolCallRequest): Promise<any> {
 
 export function getMcpManifest() {
   return {
-    name: "apex-seo-mcp-server",
+    name: "seo-software-mcp-server",
     version: "1.0.0",
-    description: "Model Context Protocol interface for ApexSEO intelligence, site audits, and backlink automation",
+    description: "Model Context Protocol interface for SEO Software intelligence, site audits, and backlink automation",
     tools: [
       {
         name: "audit_url",
