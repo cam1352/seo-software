@@ -140,9 +140,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:support@seosoftware.io" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1.5 transition-colors">
+                <a href="mailto:seosoftwareio@protonmail.com" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1.5 transition-colors">
                   <Mail className="w-3.5 h-3.5" />
-                  <span>Support: support@seosoftware.io</span>
+                  <span>Support: seosoftwareio@protonmail.com</span>
                 </a>
               </li>
             </ul>
@@ -155,9 +155,9 @@ export function Footer() {
             © {new Date().getFullYear()} SEO Software. Built for high-velocity search domination & Generative Engine Optimization.
           </div>
           <div className="flex items-center gap-4 text-xs">
-            <a href="mailto:support@seosoftware.io" className="hover:text-blue-600 transition-colors flex items-center gap-1">
+            <a href="mailto:seosoftwareio@protonmail.com" className="hover:text-blue-600 transition-colors flex items-center gap-1">
               <Mail className="w-3 h-3" />
-              <span>Contact</span>
+              <span>Contact (seosoftwareio@protonmail.com)</span>
             </a>
             <Link href="/faq" className="hover:text-blue-600 transition-colors">FAQs</Link>
             <Link href="/blogs" className="hover:text-blue-600 transition-colors">Blogs</Link>
