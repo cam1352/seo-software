@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Zap, HelpCircle, BookOpen, FileText, Activity, Search, Sparkles, Link2, Terminal, Shield } from "lucide-react";
+import { Zap, HelpCircle, BookOpen, FileText, Activity, Search, Sparkles, Link2, Terminal, Shield, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -139,6 +139,12 @@ export function Footer() {
                   <span>Competitor Gap Analysis</span>
                 </Link>
               </li>
+              <li>
+                <a href="mailto:support@seosoftware.io" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1.5 transition-colors">
+                  <Mail className="w-3.5 h-3.5" />
+                  <span>Support: support@seosoftware.io</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -149,6 +155,10 @@ export function Footer() {
             © {new Date().getFullYear()} SEO Software. Built for high-velocity search domination & Generative Engine Optimization.
           </div>
           <div className="flex items-center gap-4 text-xs">
+            <a href="mailto:support@seosoftware.io" className="hover:text-blue-600 transition-colors flex items-center gap-1">
+              <Mail className="w-3 h-3" />
+              <span>Contact</span>
+            </a>
             <Link href="/faq" className="hover:text-blue-600 transition-colors">FAQs</Link>
             <Link href="/blogs" className="hover:text-blue-600 transition-colors">Blogs</Link>
             <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>

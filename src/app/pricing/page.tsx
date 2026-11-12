@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { Check, Zap, Sparkles, Shield, ArrowRight, CheckCircle2, CreditCard, ExternalLink, Loader2, X } from "lucide-react";
@@ -92,7 +92,7 @@ export default function PricingPage() {
           The Semrush Alternative for High-Velocity Teams
         </div>
         <h1 className="text-3xl lg:text-5xl font-black text-slate-900 tracking-tight">
-          SEO Software Pro — Just <span className="text-blue-600"></span> / Month
+          SEO Software Pro — Just <span className="text-blue-600">$99</span> / Month
         </h1>
         <p className="text-sm text-slate-600 max-w-2xl mx-auto">
           Outrank competitors and dominate #1 search rankings with full technical site audits, Keyword Magic, automated IndexNow backlink submission, and Generative Engine Optimization.
@@ -107,7 +107,7 @@ export default function PricingPage() {
             <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Traditional Tool</div>
             <h2 className="text-xl font-bold text-slate-800 mt-1">Semrush Pro</h2>
             <div className="mt-4 flex items-baseline gap-1">
-              <span className="text-3xl font-extrabold text-slate-800">.95</span>
+              <span className="text-3xl font-extrabold text-slate-800">$139.95</span>
               <span className="text-xs text-slate-500">/month</span>
             </div>
             <p className="text-xs text-slate-500 mt-2">Expensive legacy suite with strict report caps and paywalled add-ons.</p>
@@ -125,7 +125,7 @@ export default function PricingPage() {
           </div>
         </div>
 
-        {/* WINNER: SEO Software (/mo) */}
+        {/* WINNER: SEO Software ($99/mo) */}
         <div className="p-8 rounded-2xl bg-white border-2 border-blue-600 flex flex-col justify-between relative shadow-xl shadow-blue-500/10 scale-105 z-10">
           <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-blue-600 text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md">
             Most Popular & Recommended
@@ -135,7 +135,7 @@ export default function PricingPage() {
             <div className="text-xs font-bold text-blue-600 uppercase tracking-wider">Rank #1 Suite</div>
             <h2 className="text-2xl font-black text-slate-900 mt-1">SEO Software Pro</h2>
             <div className="mt-4 flex items-baseline gap-1">
-              <span className="text-4xl font-black text-blue-600"></span>
+              <span className="text-4xl font-black text-blue-600">$99</span>
               <span className="text-xs text-slate-500">/month</span>
             </div>
             <p className="text-xs text-slate-600 mt-2">All-in-one search intelligence suite to claim #1 positions across search & AI engines.</p>
@@ -182,7 +182,7 @@ export default function PricingPage() {
               ) : (
                 <>
                   <CreditCard className="w-4 h-4" />
-                  <span>Get SEO Software for /mo</span>
+                  <span>Get SEO Software for $99/mo</span>
                   <ArrowRight className="w-4 h-4" />
                 </>
               )}
@@ -200,7 +200,7 @@ export default function PricingPage() {
             <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Traditional Tool</div>
             <h2 className="text-xl font-bold text-slate-800 mt-1">Ahrefs Standard</h2>
             <div className="mt-4 flex items-baseline gap-1">
-              <span className="text-3xl font-extrabold text-slate-800">.00</span>
+              <span className="text-3xl font-extrabold text-slate-800">$199.00</span>
               <span className="text-xs text-slate-500">/month</span>
             </div>
             <p className="text-xs text-slate-500 mt-2">Costly credit-metering model where each row click burns credits.</p>
