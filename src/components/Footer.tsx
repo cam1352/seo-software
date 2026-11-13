@@ -114,7 +114,7 @@ export function Footer() {
           <div className="space-y-3">
             <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
               <Terminal className="w-3.5 h-3.5 text-blue-600" />
-              Platform & Pricing
+              Platform & Legal
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
@@ -130,13 +130,13 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/content" className="text-slate-600 hover:text-blue-600 transition-colors">
-                  <span>SEO Writing Assistant</span>
+                <Link href="/terms" className="text-slate-600 hover:text-blue-600 transition-colors">
+                  <span>Terms & Conditions</span>
                 </Link>
               </li>
               <li>
-                <Link href="/gap" className="text-slate-600 hover:text-blue-600 transition-colors">
-                  <span>Competitor Gap Analysis</span>
+                <Link href="/privacy" className="text-slate-600 hover:text-blue-600 transition-colors">
+                  <span>Privacy Policy</span>
                 </Link>
               </li>
               <li>
@@ -164,6 +164,8 @@ export function Footer() {
               <Mail className="w-3 h-3" />
               <span>Contact Us</span>
             </Link>
+            <Link href="/terms" className="hover:text-blue-600 transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy</Link>
             <Link href="/faq" className="hover:text-blue-600 transition-colors">FAQs</Link>
             <Link href="/blogs" className="hover:text-blue-600 transition-colors">Blogs</Link>
             <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
