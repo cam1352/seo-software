@@ -7,6 +7,9 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "SEO Software ($99/mo) | Rank #1 Suite with GEO Tracking & Auto-Backlinks",
   description: "Next-generation SEO intelligence, real-time site audit, Keyword Magic tool, Generative Engine Optimization (GEO), and automated backlink submission.",
+  verification: {
+    google: "T2LjC5HI1d2lYCh3c4ren4V5qJTTJ60l2u0kf08JZF8",
+  },
 };
 
 export default function RootLayout({
