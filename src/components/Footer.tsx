@@ -140,9 +140,14 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:seosoftwareio@protonmail.com" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1.5 transition-colors">
+                <Link href="/contact" className="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-1.5 transition-colors">
                   <Mail className="w-3.5 h-3.5" />
-                  <span>Support: seosoftwareio@protonmail.com</span>
+                  <span>Contact Us</span>
+                </Link>
+              </li>
+              <li>
+                <a href="mailto:seosoftwareio@protonmail.com" className="text-slate-500 hover:text-blue-600 text-xs flex items-center gap-1.5 transition-colors">
+                  <span>seosoftwareio@protonmail.com</span>
                 </a>
               </li>
             </ul>
@@ -155,10 +160,10 @@ export function Footer() {
             © {new Date().getFullYear()} SEO Software. Built for high-velocity search domination & Generative Engine Optimization.
           </div>
           <div className="flex items-center gap-4 text-xs">
-            <a href="mailto:seosoftwareio@protonmail.com" className="hover:text-blue-600 transition-colors flex items-center gap-1">
+            <Link href="/contact" className="text-blue-600 font-bold hover:text-blue-800 transition-colors flex items-center gap-1">
               <Mail className="w-3 h-3" />
-              <span>Contact (seosoftwareio@protonmail.com)</span>
-            </a>
+              <span>Contact Us</span>
+            </Link>
             <Link href="/faq" className="hover:text-blue-600 transition-colors">FAQs</Link>
             <Link href="/blogs" className="hover:text-blue-600 transition-colors">Blogs</Link>
             <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>

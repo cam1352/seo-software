@@ -19,6 +19,7 @@ import {
   Zap,
   Menu,
   X,
+  Mail,
 } from "lucide-react";
 
 export const NAVIGATION = [
@@ -31,6 +32,7 @@ export const NAVIGATION = [
   { name: "SEO Writing Assistant", href: "/content", icon: FileText },
   { name: "Competitor Gap", href: "/gap", icon: GitCompare },
   { name: "Pricing ($99/mo)", href: "/pricing", icon: DollarSign, badge: "$99" },
+  { name: "Contact Support", href: "/contact", icon: Mail },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
 
