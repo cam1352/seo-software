@@ -32,7 +32,7 @@ export function Footer() {
           <div className="space-y-3">
             <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
               <Cloud className="w-3.5 h-3.5 text-blue-600" />
-              Solutions & Micro-Tools
+              Solutions & Use-Cases
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
@@ -62,6 +62,30 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/for/ecommerce-shopify"
+                  className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors"
+                >
+                  <span>Shopify & E-Commerce</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/for/saas"
+                  className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors"
+                >
+                  <span>B2B SaaS Growth</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/for/local-business"
+                  className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors"
+                >
+                  <span>Local Business & Maps</span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/tools/indexnow-pinger"
                   className="font-semibold text-emerald-600 hover:text-emerald-800 flex items-center gap-1.5 transition-colors"
                 >
@@ -72,42 +96,45 @@ export function Footer() {
                   </span>
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Comparisons & Alternatives */}
+          <div className="space-y-3">
+            <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+              Comparisons & Guides
+            </h3>
+            <ul className="space-y-2 text-xs">
               <li>
-                <Link
-                  href="/faq"
-                  className="text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-colors"
-                >
+                <Link href="/vs/semrush" className="font-semibold text-slate-700 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
+                  <span>vs SEMrush ($99 vs $139)</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/vs/ahrefs" className="font-semibold text-slate-700 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
+                  <span>vs Ahrefs (No Credit Traps)</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/vs/screaming-frog" className="font-semibold text-slate-700 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
+                  <span>vs Screaming Frog (Cloud)</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-colors">
                   <span>1,000 Structured FAQs</span>
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/blogs"
-                  className="text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-colors"
-                >
+                <Link href="/blogs" className="text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-colors">
                   <span>100 Strategic SEO Guides</span>
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Core SEO Engines */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-              <Activity className="w-3.5 h-3.5 text-blue-600" />
-              Search Intelligence
-            </h3>
-            <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/audit" className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
                   <Activity className="w-3 h-3 text-slate-400" />
-                  <span>Technical Site Audit Studio</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/keywords" className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
-                  <Search className="w-3 h-3 text-slate-400" />
-                  <span>Keyword Magic Tool</span>
+                  <span>Technical Site Audit</span>
                 </Link>
               </li>
               <li>
@@ -116,21 +143,10 @@ export function Footer() {
                   <span>GEO AI Citation Tracker</span>
                 </Link>
               </li>
-              <li>
-                <Link href="/backlinks" className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
-                  <Link2 className="w-3 h-3 text-emerald-500" />
-                  <span>Search Indexing Hub (IndexNow)</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/domain" className="text-slate-600 hover:text-blue-600 transition-colors">
-                  <span>Domain Authority Overview</span>
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Col 4: Platform & Developer */}
+          {/* Col 4: Platform & Legal */}
           <div className="space-y-3">
             <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
               <Terminal className="w-3.5 h-3.5 text-blue-600" />
@@ -140,13 +156,19 @@ export function Footer() {
               <li>
                 <Link href="/pricing" className="font-bold text-slate-900 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
                   <span>Pro Plan ($99/mo)</span>
-                  <span className="text-[10px] text-blue-600 font-normal">vs Semrush $139.95</span>
+                  <span className="text-[10px] text-blue-600 font-normal">Flat Rate</span>
                 </Link>
               </li>
               <li>
-                <Link href="/settings" className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
-                  <Terminal className="w-3 h-3 text-slate-400" />
-                  <span>Platform Settings & Crawler</span>
+                <Link href="/keywords" className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
+                  <Search className="w-3 h-3 text-slate-400" />
+                  <span>Keyword Magic Tool</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/backlinks" className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
+                  <Link2 className="w-3 h-3 text-emerald-500" />
+                  <span>Search Indexing Hub</span>
                 </Link>
               </li>
               <li>
@@ -179,10 +201,16 @@ export function Footer() {
           <div>
             © {new Date().getFullYear()} SEO Software. Built for high-velocity search domination & Generative Engine Optimization.
           </div>
-          <div className="flex flex-wrap items-center gap-3.5 text-xs">
+          <div className="flex flex-wrap items-center gap-3 text-xs">
             <Link href="/cloud-seo-platform" className="hover:text-blue-600 transition-colors">Cloud SEO</Link>
             <Link href="/rank-tracking-software" className="hover:text-blue-600 transition-colors">Rank Tracker</Link>
             <Link href="/agency-seo-suite" className="hover:text-blue-600 transition-colors">Agency Suite</Link>
+            <Link href="/vs/semrush" className="hover:text-blue-600 transition-colors font-medium">vs SEMrush</Link>
+            <Link href="/vs/ahrefs" className="hover:text-blue-600 transition-colors font-medium">vs Ahrefs</Link>
+            <Link href="/vs/screaming-frog" className="hover:text-blue-600 transition-colors font-medium">vs Screaming Frog</Link>
+            <Link href="/for/ecommerce-shopify" className="hover:text-blue-600 transition-colors">Shopify SEO</Link>
+            <Link href="/for/saas" className="hover:text-blue-600 transition-colors">SaaS SEO</Link>
+            <Link href="/for/local-business" className="hover:text-blue-600 transition-colors">Local SEO</Link>
             <Link href="/tools/indexnow-pinger" className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors">Free Pinger</Link>
             <Link href="/contact" className="text-blue-600 font-bold hover:text-blue-800 transition-colors flex items-center gap-1">
               <Mail className="w-3 h-3" />
@@ -190,8 +218,6 @@ export function Footer() {
             </Link>
             <Link href="/terms" className="hover:text-blue-600 transition-colors">Terms</Link>
             <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy</Link>
-            <Link href="/faq" className="hover:text-blue-600 transition-colors">FAQs</Link>
-            <Link href="/blogs" className="hover:text-blue-600 transition-colors">Blogs</Link>
             <Link href="/pricing" className="hover:text-blue-600 transition-colors">Pricing</Link>
           </div>
         </div>
