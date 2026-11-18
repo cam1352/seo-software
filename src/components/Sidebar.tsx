@@ -29,6 +29,7 @@ export const NAVIGATION = [
   { name: "Technical Site Audit", href: "/audit", icon: Activity },
   { name: "GEO & AI Visibility", href: "/geo", icon: Sparkles, badge: "NEW" },
   { name: "Search Indexing Hub", href: "/backlinks", icon: Link2, badge: "FAST" },
+  { name: "Free IndexNow Tool", href: "/tools/indexnow-pinger", icon: Zap, badge: "FREE" },
   { name: "SEO Writing Assistant", href: "/content", icon: FileText },
   { name: "Competitor Gap", href: "/gap", icon: GitCompare },
   { name: "Pricing ($99/mo)", href: "/pricing", icon: DollarSign, badge: "$99" },
@@ -95,7 +96,7 @@ export function Sidebar() {
                     className={`text-[9px] px-1.5 py-0.5 rounded font-bold ${
                       item.badge === "NEW"
                         ? "bg-purple-50 text-purple-700 border border-purple-200"
-                        : item.badge === "FAST"
+                        : item.badge === "FAST" || item.badge === "FREE"
                         ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
                         : item.badge === "$99"
                         ? "bg-blue-50 text-blue-700 border border-blue-200"
