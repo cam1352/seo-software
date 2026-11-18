@@ -5,7 +5,7 @@ import { ShieldAlert, FileText, CheckCircle2, AlertTriangle, Scale, Lock, ArrowL
 
 export default function TermsPage() {
   const lastUpdated = "November 13, 2026";
-  const contactEmail = "seosoftwareio@protonmail.com";
+  const contactEmail = "support@seosoftware.io";
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 space-y-8">

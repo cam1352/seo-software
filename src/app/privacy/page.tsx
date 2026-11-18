@@ -5,7 +5,7 @@ import { Shield, Lock, Eye, Server, ArrowLeft, Mail, CheckCircle } from "lucide-
 
 export default function PrivacyPage() {
   const lastUpdated = "November 13, 2026";
-  const contactEmail = "seosoftwareio@protonmail.com";
+  const contactEmail = "support@seosoftware.io";
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 sm:px-6 space-y-8">
@@ -68,7 +68,7 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-5 space-y-1.5 text-slate-700">
             <li><strong>Stripe:</strong> Payment processing and subscription management (PCI-DSS Level 1 certified).</li>
             <li><strong>Vercel:</strong> Global CDN edge hosting and serverless functions (SOC 2 Type II certified).</li>
-            <li><strong>ProtonMail:</strong> End-to-end encrypted email communications.</li>
+            <li><strong>Encrypted Mail Infrastructure:</strong> End-to-end encrypted business email communications.</li>
           </ul>
         </section>
 

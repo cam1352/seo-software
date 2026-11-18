@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 
 export default function ContactPage() {
-  const emailAddress = "seosoftwareio@protonmail.com";
+  const emailAddress = "support@seosoftware.io";
   const [copied, setCopied] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -119,7 +119,7 @@ export default function ContactPage() {
                 <span>Encrypted & Private</span>
               </div>
               <p className="text-[11px] text-slate-500 leading-relaxed">
-                All inquiries are received through end-to-end encrypted ProtonMail servers.
+                All inquiries are received through end-to-end encrypted business mail servers.
               </p>
             </div>
           </div>

@@ -115,7 +115,7 @@ export default function PricingPage() {
             <ul className="mt-6 space-y-2.5 text-xs text-slate-600">
               <li className="flex items-center gap-2"><span>• 500 keywords tracked</span></li>
               <li className="flex items-center gap-2"><span>• 100,000 page crawl cap</span></li>
-              <li className="flex items-center gap-2 text-rose-500"><span>✕ No automated backlink submission</span></li>
+              <li className="flex items-center gap-2 text-rose-500"><span>✕ No native IndexNow protocol dispatcher</span></li>
               <li className="flex items-center gap-2 text-rose-500"><span>✕ AI Search / GEO tracking costs extra</span></li>
               <li className="flex items-center gap-2 text-rose-500"><span>✕ Single-seat paywall</span></li>
             </ul>
@@ -138,7 +138,7 @@ export default function PricingPage() {
               <span className="text-4xl font-black text-blue-600">$99</span>
               <span className="text-xs text-slate-500">/month</span>
             </div>
-            <p className="text-xs text-slate-600 mt-2">All-in-one search intelligence suite to claim #1 positions across search & AI engines.</p>
+            <p className="text-xs text-slate-600 mt-2">All-in-one search intelligence suite to maximize search visibility across web & AI engines.</p>
 
             <ul className="mt-6 space-y-3 text-xs text-slate-700">
               <li className="flex items-center gap-2 font-medium">
@@ -151,7 +151,7 @@ export default function PricingPage() {
               </li>
               <li className="flex items-center gap-2 font-medium">
                 <Check className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span><strong>Automated Backlink Submission</strong> (IndexNow + Pings)</span>
+                <span><strong>IndexNow Protocol Engine</strong> (Instant Bing/Yandex Pings)</span>
               </li>
               <li className="flex items-center gap-2 font-medium">
                 <Check className="w-4 h-4 text-emerald-500 shrink-0" />
@@ -208,7 +208,7 @@ export default function PricingPage() {
             <ul className="mt-6 space-y-2.5 text-xs text-slate-600">
               <li className="flex items-center gap-2"><span>• Metered 500 credits per month</span></li>
               <li className="flex items-center gap-2"><span>• Additional charges for extra usage</span></li>
-              <li className="flex items-center gap-2 text-rose-500"><span>✕ No automated backlink submission</span></li>
+              <li className="flex items-center gap-2 text-rose-500"><span>✕ No instant search indexing accelerator</span></li>
               <li className="flex items-center gap-2 text-rose-500"><span>✕ No native IndexNow protocol dispatcher</span></li>
               <li className="flex items-center gap-2 text-rose-500"><span>✕ No automated multi-location citation builder</span></li>
             </ul>
@@ -224,15 +224,15 @@ export default function PricingPage() {
         <div className="flex items-start gap-3">
           <Shield className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
           <div>
-            <h4 className="font-bold text-slate-900 mb-1">Guaranteed #1 Ranking Architecture</h4>
+            <h4 className="font-bold text-slate-900 mb-1">Engineered for High Search Visibility</h4>
             <p className="text-slate-500 leading-relaxed">Built with 1,000 Schema-injected FAQs, 100 strategic articles, and Core Web Vitals optimizations.</p>
           </div>
         </div>
         <div className="flex items-start gap-3">
           <Zap className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
           <div>
-            <h4 className="font-bold text-slate-900 mb-1">Instant Automated Backlinks</h4>
-            <p className="text-slate-500 leading-relaxed">One-click IndexNow submission immediately pings Bing, Yandex, and syndicates to High-DA directories.</p>
+            <h4 className="font-bold text-slate-900 mb-1">Instant IndexNow Protocol Dispatcher</h4>
+            <p className="text-slate-500 leading-relaxed">One-click IndexNow submission immediately pings Bing, Yandex, and search indexers to accelerate crawl budget.</p>
           </div>
         </div>
         <div className="flex items-start gap-3">

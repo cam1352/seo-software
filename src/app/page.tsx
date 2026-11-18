@@ -37,13 +37,13 @@ export default function DashboardPage() {
         <div className="relative z-10 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-white text-xs font-semibold mb-4 backdrop-blur-sm">
             <Zap className="w-3.5 h-3.5 text-yellow-300" />
-            Rank #1 Search & AI Visibility Suite · $99/mo
+            Cloud SEO Software & Search Intelligence Suite
           </div>
           <h1 className="text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
-            Next-Gen SEO Intelligence, <span className="text-blue-200">GEO Tracking</span> & Automated Backlinks
+            Next-Gen SEO Intelligence, <span className="text-blue-200">Cloud Rank Tracking</span> & Technical Audits
           </h1>
           <p className="mt-3 text-sm text-blue-100 leading-relaxed">
-            Perform real-time technical site audits, discover high-intent keywords, track Generative Engine citations across AI models, and dispatch instant IndexNow backlink submissions.
+            Perform real-time technical site audits, track keyword rankings across search engines, monitor Generative AI citations, and accelerate crawl budgets with IndexNow protocol dispatching.
           </p>
 
           {/* Quick Launch Audit Input */}
@@ -181,16 +181,16 @@ export default function DashboardPage() {
               </div>
               <div className="flex items-center gap-2">
                 <h3 className="font-bold text-slate-900 text-base group-hover:text-blue-600 transition-colors">
-                  Auto Backlink Hub
+                  Search Indexing & Link Hub
                 </h3>
-                <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">Auto</span>
+                <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">IndexNow</span>
               </div>
               <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                Instant IndexNow engine dispatch, Ping-o-Matic syndication, High-DA directories, and live backlink verification.
+                Instant IndexNow engine protocol dispatch, search engine crawl acceleration, and active link profile monitoring.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-blue-600">
-              <span>Automate Submissions</span>
+              <span>Accelerate Indexing</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>

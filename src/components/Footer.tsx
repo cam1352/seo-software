@@ -20,7 +20,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              The rank #1 alternative to Semrush ($139.95/mo). Real-time 25-checkpoint technical crawls, automated IndexNow backlink engine, and dual GEO AI citation tracking.
+              The cloud SEO alternative to Semrush ($139.95/mo). Real-time 25-checkpoint technical crawls, IndexNow search engine protocol dispatcher, and dual GEO AI citation tracking.
             </p>
             <div className="pt-1 flex items-center gap-2 text-[11px] text-slate-500 font-medium">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -99,7 +99,7 @@ export function Footer() {
               <li>
                 <Link href="/backlinks" className="text-slate-600 hover:text-blue-600 flex items-center gap-1.5 transition-colors">
                   <Link2 className="w-3 h-3 text-emerald-500" />
-                  <span>Auto Backlink Hub (IndexNow)</span>
+                  <span>Search Indexing Hub (IndexNow)</span>
                 </Link>
               </li>
               <li>
@@ -146,8 +146,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="mailto:seosoftwareio@protonmail.com" className="text-slate-500 hover:text-blue-600 text-xs flex items-center gap-1.5 transition-colors">
-                  <span>seosoftwareio@protonmail.com</span>
+                <a href="mailto:support@seosoftware.io" className="text-slate-500 hover:text-blue-600 text-xs flex items-center gap-1.5 transition-colors">
+                  <span>support@seosoftware.io</span>
                 </a>
               </li>
             </ul>

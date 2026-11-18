@@ -206,10 +206,10 @@ export default function BacklinksPage() {
           </div>
           <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2.5">
             <Link2 className="w-6 h-6 text-blue-600" />
-            Automated Backlink Hub & Local Citation Engine
+            Search Indexing Hub & Link Discovery Studio
           </h1>
           <p className="text-xs text-slate-500 mt-1">
-            Submit your URLs to IndexNow search engine nodes, ping networks, high-DA directories, and multi-location local citations.
+            Dispatch URLs to IndexNow search engine nodes, ping networks, authoritative directories, and multi-location citation partners.
           </p>
         </div>
 
@@ -222,7 +222,7 @@ export default function BacklinksPage() {
             }`}
           >
             <Send className="w-3.5 h-3.5" />
-            Auto-Submission Hub
+            IndexNow Dispatcher
           </button>
           <button
             onClick={() => setActiveTab("verify")}
